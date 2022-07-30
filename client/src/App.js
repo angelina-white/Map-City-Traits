@@ -1,9 +1,28 @@
 import './App.css';
 import USAMap from "react-usa-map";
-
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+
   const city = "Washington DC"
+
+  useEffect(() =>
+  {
+    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${city}`, 
+    {
+      headers: 
+      {
+        Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
+    },
+      params: 
+      {
+      categories: 'ethiopian',
+      }
+    })
+    .then((res) => console.log(res.data.businesses))
+      .catch((err) => console.log ('error'))
+  }, [])
 
   function mapHandler(event)
   {
