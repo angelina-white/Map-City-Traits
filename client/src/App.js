@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import USAMap from "react-usa-map";
+
 
 function App() {
+  const city = "Washington DC"
+
+  function mapHandler(event)
+  {
+    alert(event.target.dataset.name);
+  };
+
+  function statesCustomConfig()
+  {
+    return {
+      "NJ": {
+        fill: "navy",
+        clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
+      },
+      "NY": {
+        fill: "#CC0000"
+      }
+    };
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <USAMap customize={statesCustomConfig()} onClick={mapHandler} /> */}
+      <USAMap onClick={mapHandler} />
+      <div className="circle" />
     </div>
   );
 }
