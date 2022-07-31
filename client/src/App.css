@@ -1,10 +1,10 @@
-path {
+/* path {
   pointer-events: all;
 }
 path:hover {
   opacity: 0.50;
   cursor: pointer;
-}
+} */
 
 .circle {
   height: 10px;
@@ -13,6 +13,284 @@ path:hover {
   border-radius: 50%;
   display: inline-block;
   position: absolute;
+}
+
+#dc {
   margin-left: -162.5px;
   margin-top: 247px;
+}
+
+#nyc {
+  margin-left: -120px;
+  margin-top: 190px;
+}
+
+#boston {
+  margin-left: -80px;
+  margin-top: 150px;
+}
+
+#trenton {
+  margin-left: -135px;
+  margin-top: 210px;
+}
+
+#dover {
+  margin-top: 238px;
+  margin-left: -134px;
+}
+
+#hampton {
+  margin-top: 280px;
+  margin-left: -145px;
+}
+
+#goldsboro {
+  margin-top: 325px;
+  margin-left: -160px;
+}
+
+#charleston {
+  margin-top: 392px;
+  margin-left: -190px;
+}
+
+#sumter {
+  margin-top: 365px;
+  margin-left: -200px;
+}
+
+#tullahoma {
+  margin-top: 345px;
+  margin-left: -324px;
+}
+
+#columbus {
+  margin-top: 400px;
+  margin-left: -353px;
+}
+
+#montgomery {
+  margin-top: 411px;
+  margin-left: -306px;
+}
+
+#atlanta {
+  margin-top: 380px;
+  margin-left: -270px;
+}
+
+#biloxi {
+  margin-top: 462px;
+  margin-left: -348px;
+}
+
+#valparaiso {
+  margin-top: 458px;
+  margin-left: -303px;
+}
+
+#panamaCity {
+  margin-top: 463px;
+  margin-left: -283px;
+}
+
+#tampa {
+  margin-top: 502px;
+  margin-left: -220px;
+}
+
+#cocoaBeach {
+  margin-top: 492px;
+  margin-left: -182px;
+}
+
+#dayton {
+  margin-top: 250px;
+  margin-left: -275px;
+}
+
+#belleville {
+  margin-top: 277px;
+  margin-left: -383px;
+}
+
+#knobNoster {
+  margin-top: 277px;
+  margin-left: -440px;
+}
+
+#littleRock {
+  margin-top: 370px;
+  margin-left: -425px;
+}
+
+#minot {
+  margin-top: 80px;
+  margin-left: -560px;
+}
+
+#grandForks {
+  margin-top: 84px;
+  margin-left: -500px;
+}
+
+#offutt {
+  margin-top: 220px;
+  margin-left: -487px;
+}
+
+#wichita {
+  margin-top: 298px;
+  margin-left: -505px;
+}
+
+#enida {
+  margin-top: 340px;
+  margin-left: -519px;
+}
+
+#oklahomaCity {
+  margin-top: 355px;
+  margin-left: -505px;
+}
+
+#altus {
+  margin-top: 366px;
+  margin-left: -540px;
+}
+
+#wichitaFalls {
+  margin-top: 395px;
+  margin-left: -530px;
+}
+
+#sanAngelo {
+  margin-top: 440px;
+  margin-left: -570px;
+}
+
+#abilene {
+  margin-top: 423px;
+  margin-left: -560px;
+}
+
+#delRio {
+  margin-top: 487px;
+  margin-left: -577px;
+}
+
+#sanAntonio {
+  margin-top: 487px;
+  margin-left: -530px;
+}
+
+#rapidCity {
+  margin-top: 160px;
+  margin-left: -595px;
+}
+
+#cheyenne {
+  margin-top: 215px;
+  margin-left: -634px;
+}
+
+#aurora {
+  margin-top: 250px;
+  margin-left: -634px;
+}
+
+#coloradoSprings {
+  margin-top: 270px;
+  margin-left: -633px;
+}
+
+#clovis {
+  margin-top: 370px;
+  margin-left: -619px;
+}
+
+#albuqurque {
+  margin-top: 365px;
+  margin-left: -670px;
+}
+
+#alamogordo {
+  margin-top: 398px;
+  margin-left: -660px;
+}
+
+#greatFalls {
+  margin-top: 75px;
+  margin-left: -715px;
+}
+
+#spokane {
+  margin-top: 50px;
+  margin-left: -805px;
+}
+
+#takoma {
+  margin-top: 25px;
+  margin-left: -870px;
+}
+
+#mountainHome {
+  margin-top: 150px;
+  margin-left: -795px;
+}
+
+#ogden {
+  margin-top: 200px;
+  margin-left: -745px;
+}
+
+#marysville {
+  margin-top: 210px;
+  margin-left: -910px;
+}
+
+#fairchild {
+  margin-top: 250px;
+  margin-left: -920px;
+}
+
+#lasVegas {
+  margin-top: 306px;
+  margin-left: -820px;
+}
+
+#indianSprings {
+  margin-top: 295px;
+  margin-left: -827px;
+}
+
+#rosamond {
+  margin-top: 314px;
+  margin-left: -890px;
+}
+
+#lompoc {
+  margin-top: 317px;
+  margin-left: -917px;
+}
+
+#elSegundo {
+  margin-top: 340px;
+  margin-left: -885px;
+}
+
+#anchorage {
+  margin-top: 525px;
+  margin-left: -844px;
+}
+
+#fairbanks {
+  margin-top: 495px;
+  margin-left: -840px;
+}
+
+#honolulu {
+  margin-top: 523px;
+  margin-left: -683px;
 }
