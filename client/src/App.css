@@ -23,7 +23,7 @@ path:hover {
   margin-left: 40px;
 }
 
-#mapContainer {  
+.mapContainer {  
   float: left;
   margin-top: 30px;
   margin-left: 160px;
@@ -40,6 +40,24 @@ path:hover {
 
 .circle:hover {
   background-color: lightblue;
+}
+
+.red {
+  background-color: red;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+#BAHButtons {
+  position: absolute;
+  margin-top: -25px;
+  margin-left: -150px;
 }
 
 #dc {
