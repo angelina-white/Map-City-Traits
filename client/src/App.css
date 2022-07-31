@@ -6,6 +6,29 @@ path:hover {
   cursor: pointer;
 } */
 
+#titleCont {
+  text-align: center;
+  border-bottom: 2px solid darkgrey;
+}
+
+#optionsNav {
+  float: left;
+  height: 90vh;
+  width: 225px;
+  padding-left: 25px;
+  background-color: lightgrey;
+}
+
+#options {
+  margin-left: 40px;
+}
+
+#mapContainer {  
+  float: left;
+  margin-top: 30px;
+  margin-left: 160px;
+}
+
 .circle {
   height: 12px;
   width: 12px;
@@ -332,8 +355,8 @@ path:hover {
 
 #showTrenton {
   position: absolute;
-  margin-top: -430px;
-  margin-left: 840px;
+  margin-top: -488px;
+  margin-left: 695px;
 }
 
 #showDover {
@@ -344,8 +367,8 @@ path:hover {
 
 #showHampton {
   position: absolute;
-  margin-top: -360px;
-  margin-left: 830px;
+  margin-top: -418px;
+  margin-left: 715px;
 }
 
 #showGoldsboro {
