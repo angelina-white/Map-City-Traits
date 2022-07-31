@@ -232,6 +232,118 @@ function BAH()
     const honoluluBAH = [2004, 2004, 2004, 2004, 2220, 2412, 2682, 2991, 3015]
     const honoluluBAHDep = [2670, 2670, 2670, 2670, 2961, 3081, 3258, 3456, 3633]
 
+
+
+    const [dcColor, setDcColor] = useState('circle')
+
+    function findDcColor(num)
+    {
+        if (isDependents == true)
+        {
+            if (dcBAHDep[rank] > 0 && dcBAHDep[rank] <= 1000)
+            {   
+                setDcColor("circle white")
+            }
+            else if (dcBAHDep[rank] > 1000 && dcBAHDep[rank] <= 1500)
+            {
+                setDcColor("circle lightGreen")
+            }
+            else if (dcBAHDep[rank] > 1500 && dcBAHDep[rank] <= 2000)
+            {
+                setDcColor("circle green")
+            }
+            else if (dcBAHDep[rank] > 2000)
+            {
+                setDcColor("circle darkGreen")
+            }
+        }
+        else
+        {
+            if (dcBAH[num] > 0 && dcBAH[num] <= 1000)
+            {
+                setDcColor("circle white")
+            }
+            else if (dcBAH[num] > 1000 && dcBAH[num] <= 1500)
+            {
+                setDcColor("circle lightGreen")
+            }
+            else if (dcBAH[num] > 1500 && dcBAH[num] <= 2000)
+            {
+                setDcColor("circle green")
+            }
+            else if (dcBAH[num] > 2000)
+            {
+                setDcColor("circle darkGreen")
+            }
+        }
+    }
+
+    function clickDependents()
+    {
+        setIsDependents(true)
+        findDcColor(rank)
+    }
+
+    function clickNoDependents()
+    {
+        setIsDependents(false)
+        findDcColor(rank)
+    }
+
+    function click1()
+    {
+        setRank(0)
+        findDcColor(0)
+    }
+
+    function click2()
+    {
+        setRank(1)
+        findDcColor(1)
+    }
+
+    function click3()
+    {
+        setRank(2)
+        findDcColor(2)
+    }
+
+    function click4()
+    {
+        setRank(3)
+        findDcColor(3)
+    }
+
+    function click5()
+    {
+        setRank(4)
+        findDcColor(4)
+    }
+
+    function click6()
+    {
+        setRank(5)
+        findDcColor(5)
+    }
+
+    function click7()
+    {
+        setRank(6)
+        findDcColor(6)
+    }
+
+    function click8()
+    {
+        setRank(7)
+        findDcColor(7)
+    }
+
+    function click9()
+    {
+        setRank(8)
+        findDcColor(8)
+    }
+
     return (
         <div className="mapContainer">
             <div id="BAHButtons">
@@ -244,7 +356,7 @@ function BAH()
                         name="group1"
                         type={type}
                         id={`inline-${type}-1`}
-                        onClick={ () => setIsDependents(true) }
+                        onClick={ clickDependents }
                     />
                     <Form.Check
                         inline
@@ -252,7 +364,7 @@ function BAH()
                         name="group1"
                         type={type}
                         id={`inline-${type}-2`}
-                        onClick={ () => setIsDependents(false) }
+                        onClick={ clickNoDependents }
                     />
                     </div>
                 ))}
@@ -267,7 +379,7 @@ function BAH()
                             name="group2"
                             type={type}
                             id={`inline-${type}-1`}
-                            onClick={ () => setRank(0) }
+                            onClick={ click1 }
                         />
                         <Form.Check
                             inline
@@ -275,7 +387,7 @@ function BAH()
                             name="group2"
                             type={type}
                             id={`inline-${type}-2`}
-                            onClick={ () => setRank(1) }
+                            onClick={ click2 }
                         />
                         <Form.Check
                             inline
@@ -283,7 +395,7 @@ function BAH()
                             name="group2"
                             type={type}
                             id={`inline-${type}-1`}
-                            onClick={ () => setRank(2) }
+                            onClick={ click3 }
                         />
                         <Form.Check
                             inline
@@ -291,7 +403,7 @@ function BAH()
                             name="group2"
                             type={type}
                             id={`inline-${type}-1`}
-                            onClick={ () => setRank(3) }
+                            onClick={ click4 }
                         />
                         <Form.Check
                             inline
@@ -299,7 +411,7 @@ function BAH()
                             name="group2"
                             type={type}
                             id={`inline-${type}-2`}
-                            onClick={ () => setRank(4) }
+                            onClick={ click5 }
                         />
                         <Form.Check
                             inline
@@ -307,7 +419,7 @@ function BAH()
                             name="group2"
                             type={type}
                             id={`inline-${type}-1`}
-                            onClick={ () => setRank(5) }
+                            onClick={ click6 }
                         />
                         <Form.Check
                             inline
@@ -315,7 +427,7 @@ function BAH()
                             name="group2"
                             type={type}
                             id={`inline-${type}-2`}
-                            onClick={ () => setRank(6) }
+                            onClick={ click7 }
                         />
                         <Form.Check
                             inline
@@ -323,7 +435,7 @@ function BAH()
                             name="group2"
                             type={type}
                             id={`inline-${type}-2`}
-                            onClick={ () => setRank(7) }
+                            onClick={ click8 }
                         />
                         <Form.Check
                             inline
@@ -331,7 +443,7 @@ function BAH()
                             name="group2"
                             type={type}
                             id={`inline-${type}-2`}
-                            onClick={ () => setRank(8) }
+                            onClick={ click9 }
                         />
                     </div>
                 ))}
@@ -339,7 +451,7 @@ function BAH()
             </div>
             {/* <USAMap customize={statesCustomConfig()} onClick={mapHandler} /> */}
             <USAMap />
-            <div className="circle" id="dc" onMouseOver={ ()=> setIsDc(true) } onMouseLeave={ ()=> setIsDc(false) } />
+            <div className={ dcColor } id="dc" onMouseOver={ ()=> setIsDc(true) } onMouseLeave={ ()=> setIsDc(false) } />
             <div className="circle" id="boston" onMouseOver={ ()=> setIsBoston(true) } onMouseLeave={ ()=> setIsBoston(false) }/>
             <div className="circle" id="trenton" onMouseOver={ ()=> setIsTrenton(true) } onMouseLeave={ ()=> setIsTrenton(false) }/>
             <div className="circle" id="dover" onMouseOver={ ()=> setIsDover(true) } onMouseLeave={ ()=> setIsDover(false) }/>
@@ -396,566 +508,686 @@ function BAH()
             <div className="circle" id="fairbanks" onMouseOver={ ()=> setIsFairbanks(true) } onMouseLeave={ ()=> setIsFairbanks(false) }/>
             <div className="circle" id="honolulu" onMouseOver={ ()=> setIsHonolulu(true) } onMouseLeave={ ()=> setIsHonolulu(false) }/>
 
-            { isDc ?
-                <div className="baseNameCont" id="showDc">
-                <p>Joint Base Andrews</p>
-                {isDependents ?
-                    <p>${ dcBAHDep[rank]}</p>
-                :
-                    <p>${ dcBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isBoston ? 
-                <div className="baseNameCont" id="showBoston">
-                <p>Hanscom</p>
-                {isDependents ?
-                    <p>${ bostonBAHDep[rank]}</p>
-                :
-                    <p>${ bostonBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isTrenton ? 
-                <div className="baseNameCont" id="showTrenton">
-                <p>Joint Base Mcguire-Dix-Lakehurst</p>
-                {isDependents ?
-                    <p>${ trentonBAHDep[rank]}</p>
-                :
-                    <p>${ trentonBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isDover ? 
-                <div className="baseNameCont" id="showDover">
-                <p>Dover</p>
-                {isDependents ?
-                    <p>${ doverBAHDep[rank]}</p>
-                :
-                    <p>${ doverBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isHampton ? 
-                <div className="baseNameCont" id="showHampton">
-                <p>Joint Base Langely-Eustis</p>
-                {isDependents ?
-                    <p>${ hamptonBAHDep[rank]}</p>
-                :
-                    <p>${ hamptonBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isGoldsboro ? 
-                <div className="baseNameCont" id="showGoldsboro">
-                <p>Seymour-Johnson</p>
-                {isDependents ?
-                    <p>${ goldsboroBAHDep[rank]}</p>
-                :
-                    <p>${ goldsboroBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isCharleston ? 
-                <div className="baseNameCont" id="showCharleston">
-                <p>Joint Base Charleston</p>
-                {isDependents ?
-                    <p>${ charlestonBAHDep[rank]}</p>
-                :
-                    <p>${ charlestonBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isSumter ? 
-                <div className="baseNameCont" id="showSumter">
-                <p>Shaw</p>
-                {isDependents ?
-                    <p>${ sumterBAHDep[rank]}</p>
-                :
-                    <p>${ sumterBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isTullahoma ? 
-                <div className="baseNameCont" id="showTullahoma">
-                <p>Arnold</p>
-                {isDependents ?
-                    <p>${ tullahomaBAHDep[rank]}</p>
-                :
-                    <p>${ tullahomaBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isColumbus ? 
-                <div className="baseNameCont" id="showColumbus">
-                <p>Columbus</p>
-                {isDependents ?
-                    <p>${ columbusBAHDep[rank]}</p>
-                :
-                    <p>${ columbusBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isMontgomery ? 
-                <div className="baseNameCont" id="showMontgomery">
-                <p>Maxwell</p>
-                {isDependents ?
-                    <p>${ montgomeryBAHDep[rank]}</p>
-                :
-                    <p>${ montgomeryBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isValdosta ? 
-                <div className="baseNameCont" id="showValdosta">
-                <p>Moody</p>
-                {isDependents ?
-                    <p>${ valdostaBAHDep[rank]}</p>
-                :
-                    <p>${ valdostaBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isMacon ? 
-                <div className="baseNameCont" id="showMacon">
-                <p>Robins</p>
-                {isDependents ?
-                    <p>${ maconBAHDep[rank]}</p>
-                :
-                    <p>${ maconBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isBiloxi ? 
-                <div className="baseNameCont" id="showBiloxi">
-                <p>Keesler</p>
-                {isDependents ?
-                    <p>${ biloxiBAHDep[rank]}</p>
-                :
-                    <p>${ biloxiBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isValparaiso ? 
-                <div className="baseNameCont" id="showValparaiso">
-                <p>Eglin</p>
-                {isDependents ?
-                    <p>${ valparaisoBAHDep[rank]}</p>
-                :
-                    <p>${ valparaisoBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isPanamaCity ? 
-                <div className="baseNameCont" id="showPanamaCity">
-                <p>Tyndall</p>
-                {isDependents ?
-                    <p>${ panamaCityBAHDep[rank]}</p>
-                :
-                    <p>${ panamaCityBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isTampa ? 
-                <div className="baseNameCont" id="showTampa">
-                <p>Macdill</p>
-                {isDependents ?
-                    <p>${ tampaBAHDep[rank]}</p>
-                :
-                    <p>${ tampaBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isCocoaBeach ? 
-                <div className="baseNameCont" id="showCocoaBeach">
-                <p>Patrick</p>
-                {isDependents ?
-                    <p>${ cocoaBeachBAHDep[rank]}</p>
-                :
-                    <p>${ cocoaBeachBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isDayton ? 
-                <div className="baseNameCont" id="showDayton">
-                <p>Wright-Patterson</p>
-                {isDependents ?
-                    <p>${ daytonBAHDep[rank]}</p>
-                :
-                    <p>${ daytonBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isBelleville ? 
-                <div className="baseNameCont" id="showBelleville">
-                <p>Scott</p>
-                {isDependents ?
-                    <p>${ bellevilleBAHDep[rank]}</p>
-                :
-                    <p>${ bellevilleBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isKnobNoster ? 
-                <div className="baseNameCont" id="showKnobNoster">
-                <p>Whiteman</p>
-                {isDependents ?
-                    <p>${ knobNosterBAHDep[rank]}</p>
-                :
-                    <p>${ knobNosterBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isLittleRock ? 
-                <div className="baseNameCont" id="showLittleRock">
-                <p>Little Rock</p>
-                {isDependents ?
-                    <p>${ littleRockBAHDep[rank]}</p>
-                :
-                    <p>${ littleRockBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isMinot ? 
-                <div className="baseNameCont" id="showMinot">
-                <p>Minot</p>
-                {isDependents ?
-                    <p>${ minotBAHDep[rank]}</p>
-                :
-                    <p>${ minotBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isGrandForks ? 
-                <div className="baseNameCont" id="showGrandForks">
-                <p>Grand Forks</p>
-                {isDependents ?
-                    <p>${ grandForksBAHDep[rank]}</p>
-                :
-                    <p>${ grandForksBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isOffutt ? 
-                <div className="baseNameCont" id="showOffutt">
-                <p>Offutt</p>
-                {isDependents ?
-                    <p>${ offuttBAHDep[rank]}</p>
-                :
-                    <p>${ offuttBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isWichita ? 
-                <div className="baseNameCont" id="showWichita">
-                <p>McConnell</p>
-                {isDependents ?
-                    <p>${ wichitaBAHDep[rank]}</p>
-                :
-                    <p>${ wichitaBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isEnida ? 
-                <div className="baseNameCont" id="showEnida">
-                <p>Vance</p>
-                {isDependents ?
-                    <p>${ enidBAHDep[rank]}</p>
-                :
-                    <p>${ enidBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isOklahomaCity ? 
-                <div className="baseNameCont" id="showOklahomaCity">
-                <p>Tinker</p>
-                {isDependents ?
-                    <p>${ oklahomaCityBAHDep[rank]}</p>
-                :
-                    <p>${ oklahomaCityBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isAltus ? 
-                <div className="baseNameCont" id="showAltus">
-                <p>Altus</p>
-                {isDependents ?
-                    <p>${ altusBAHDep[rank]}</p>
-                :
-                    <p>${ altusBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isWichitaFalls ? 
-                <div className="baseNameCont" id="showWichitaFalls">
-                <p>Sheppard</p>
-                {isDependents ?
-                    <p>${ wichitaFallsBAHDep[rank]}</p>
-                :
-                    <p>${ wichitaFallsBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isSanAngelo ? 
-                <div className="baseNameCont" id="showSanAngelo">
-                <p>Goodfellow</p>
-                {isDependents ?
-                    <p>${ sanAngeloBAHDep[rank]}</p>
-                :
-                    <p>${ sanAngeloBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isAbilene ? 
-                <div className="baseNameCont" id="showAbilene">
-                <p>Dyess</p>
-                {isDependents ?
-                    <p>${ abileneBAHDep[rank]}</p>
-                :
-                    <p>${ abileneBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isDelRio ? 
-                <div className="baseNameCont" id="showDelRio">
-                <p>Laughlin</p>
-                {isDependents ?
-                    <p>${ delRioBAHDep[rank]}</p>
-                :
-                    <p>${ delRioBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isSanAntonio ? 
-                <div className="baseNameCont" id="showSanAntonio">
-                <p>Joint Base San Antonio-Lackland/Joint Base San Antonio-Randolph</p>
-                {isDependents ?
-                    <p>${ sanAntonioBAHDep[rank]}</p>
-                :
-                    <p>${ sanAntonioBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isRapidCity ? 
-                <div className="baseNameCont" id="showRapidCity">
-                <p>Ellsworth</p>
-                {isDependents ?
-                    <p>${ rapidCityBAHDep[rank]}</p>
-                :
-                    <p>${ rapidCityBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isCheyenne ? 
-                <div className="baseNameCont" id="showCheyenne">
-                <p>F.E. Warren,</p>
-                {isDependents ?
-                    <p>${ cheyenneBAHDep[rank]}</p>
-                :
-                    <p>${ cheyenneBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isAurora ? 
-                <div className="baseNameCont" id="showAurora">
-                <p>Buckley</p>
-                {isDependents ?
-                    <p>${ auroraBAHDep[rank]}</p>
-                :
-                    <p>${ auroraBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isColoradoSprings ? 
-                <div className="baseNameCont" id="showColoradoSprings">
-                <p>Peterson</p>
-                {isDependents ?
-                    <p>${ coloradoSpringsBAHDep[rank]}</p>
-                :
-                    <p>${ coloradoSpringsBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isClovis ? 
-                <div className="baseNameCont" id="showClovis">
-                <p>Cannon</p>
-                {isDependents ?
-                    <p>${ clovisBAHDep[rank]}</p>
-                :
-                    <p>${ clovisBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isAlbuqurque ? 
-                <div className="baseNameCont" id="showAlbuqurque">
-                <p>Kirtland</p>
-                {isDependents ?
-                    <p>${ albuqurqueBAHDep[rank]}</p>
-                :
-                    <p>${ albuqurqueBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isAlamogordo ? 
-                <div className="baseNameCont" id="showAlamogordo">
-                <p>Holloman</p>
-                {isDependents ?
-                    <p>${ alamogordoBAHDep[rank]}</p>
-                :
-                    <p>${ alamogordoBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isGreatFalls ? 
-                <div className="baseNameCont" id="showGreatFalls">
-                <p>Malmstrom</p>
-                {isDependents ?
-                    <p>${ greatFallsBAHDep[rank]}</p>
-                :
-                    <p>${ greatFallsBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isSpokane ? 
-                <div className="baseNameCont" id="showSpokane">
-                <p>Fairchild</p>
-                {isDependents ?
-                    <p>${ spokaneBAHDep[rank]}</p>
-                :
-                    <p>${ spokaneBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isTakoma ? 
-                <div className="baseNameCont" id="showTakoma">
-                <p>Joint Base Lewis-McChord</p>
-                {isDependents ?
-                    <p>${ tacomaBAHDep[rank]}</p>
-                :
-                    <p>${ tacomaBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isMountainHome ? 
-                <div className="baseNameCont" id="showMountainHome">
-                <p>Mountain Home</p>
-                {isDependents ?
-                    <p>${ mountainHomeBAHDep[rank]}</p>
-                :
-                    <p>${ mountainHomeBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isOgden ? 
-                <div className="baseNameCont" id="showOgden">
-                <p>Hill</p>
-                {isDependents ?
-                    <p>${ ogdenBAHDep[rank]}</p>
-                :
-                    <p>${ ogdenBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isMarysville ? 
-                <div className="baseNameCont" id="showMarysville">
-                <p>Beale</p>
-                {isDependents ?
-                    <p>${ marysvilleBAHDep[rank]}</p>
-                :
-                    <p>${ marysvilleBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isTravis ? 
-                <div className="baseNameCont" id="showTravis">
-                <p>Travis</p>
-                {isDependents ?
-                    <p>${ fairfieldBAHDep[rank]}</p>
-                :
-                    <p>${ fairfieldBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isLasVegas ? 
-                <div className="baseNameCont" id="showLasVegas">
-                <p>Nellis</p>
-                {isDependents ?
-                    <p>${ lasVegasBAHDep[rank]}</p>
-                :
-                    <p>${ lasVegasBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isIndianSprings ? 
-                <div className="baseNameCont" id="showIndianSprings">
-                <p>Creech</p>
-                {isDependents ?
-                    <p>${ indianSpringsBAHDep[rank]}</p>
-                :
-                    <p>${ indianSpringsBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isRosamond ? 
-                <div className="baseNameCont" id="showRosamond">
-                <p>Edwards</p>
-                {isDependents ?
-                    <p>${ rosamondBAHDep[rank]}</p>
-                :
-                    <p>${ rosamondBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isLompoc ? 
-                <div className="baseNameCont" id="showLompoc">
-                <p>Vandenberg</p>
-                {isDependents ?
-                    <p>${ lompocBAHDep[rank]}</p>
-                :
-                    <p>${ lompocBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isElSegundo ? 
-                <div className="baseNameCont" id="showElSegundo">
-                <p>Los Angeles</p>
-                {isDependents ?
-                    <p>${ elSegundoBAHDep[rank]}</p>
-                :
-                    <p>${ elSegundoBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isAnchorage ? 
-                <div className="baseNameCont" id="showAnchorage">
-                <p>Joint Base Elmendorf-Richardson</p>
-                {isDependents ?
-                    <p>${ anchorageBAHDep[rank]}</p>
-                :
-                    <p>${ anchorageBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isFairbanks ? 
-                <div className="baseNameCont" id="showFairbanks">
-                <p>Eielson</p>
-                {isDependents ?
-                    <p>${ eielsonBAHDep[rank]}</p>
-                :
-                    <p>${ eielsonBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
-            { isHonolulu ? 
-                <div className="baseNameCont" id="showHonolulu">
-                <p>Joint Base Pearl Harbor-Hickam</p>
-                {isDependents ?
-                    <p>${ honoluluBAHDep[rank]}</p>
-                :
-                    <p>${ honoluluBAH[rank]}</p>
-                }
-                </div> 
-            : <div></div> }
+
+            {isDependents ?
+                <div>
+                    { isDc ?
+                        <div className="baseNameCont" id="showDc">
+                            <p>Joint Base Andrews</p>
+                            <p>${ dcBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isBoston ? 
+                        <div className="baseNameCont" id="showBoston">
+                            <p>Hanscom</p>
+                            <p>${ bostonBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTrenton ? 
+                        <div className="baseNameCont" id="showTrenton">
+                            <p>Joint Base Mcguire-Dix-Lakehurst</p>
+                            <p>${ trentonBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isDover ? 
+                        <div className="baseNameCont" id="showDover">
+                            <p>Dover</p>
+                            <p>${ doverBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isHampton ? 
+                        <div className="baseNameCont" id="showHampton">
+                            <p>Joint Base Langely-Eustis</p>
+                            <p>${ hamptonBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isGoldsboro ? 
+                        <div className="baseNameCont" id="showGoldsboro">
+                            <p>Seymour-Johnson</p>
+                            <p>${ goldsboroBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isCharleston ? 
+                        <div className="baseNameCont" id="showCharleston">
+                            <p>Joint Base Charleston</p>
+                            <p>${ charlestonBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isSumter ? 
+                        <div className="baseNameCont" id="showSumter">
+                            <p>Shaw</p>
+                            <p>${ sumterBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTullahoma ? 
+                        <div className="baseNameCont" id="showTullahoma">
+                            <p>Arnold</p>
+                            <p>${ tullahomaBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isColumbus ? 
+                        <div className="baseNameCont" id="showColumbus">
+                            <p>Columbus</p>
+                            <p>${ columbusBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMontgomery ? 
+                        <div className="baseNameCont" id="showMontgomery">
+                            <p>Maxwell</p>
+                            <p>${ montgomeryBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isValdosta ? 
+                        <div className="baseNameCont" id="showValdosta">
+                            <p>Moody</p>
+                            <p>${ valdostaBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMacon ? 
+                        <div className="baseNameCont" id="showMacon">
+                            <p>Robins</p>
+                            <p>${ maconBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isBiloxi ? 
+                        <div className="baseNameCont" id="showBiloxi">
+                            <p>Keesler</p>
+                            <p>${ biloxiBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isValparaiso ? 
+                        <div className="baseNameCont" id="showValparaiso">
+                            <p>Eglin</p>
+                            <p>${ valparaisoBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isPanamaCity ? 
+                        <div className="baseNameCont" id="showPanamaCity">
+                            <p>Tyndall</p>
+                            <p>${ panamaCityBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTampa ? 
+                        <div className="baseNameCont" id="showTampa">
+                            <p>Macdill</p>
+                            <p>${ tampaBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isCocoaBeach ? 
+                        <div className="baseNameCont" id="showCocoaBeach">
+                            <p>Patrick</p>
+                            <p>${ cocoaBeachBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isDayton ? 
+                        <div className="baseNameCont" id="showDayton">
+                            <p>Wright-Patterson</p>
+                            <p>${ daytonBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isBelleville ? 
+                        <div className="baseNameCont" id="showBelleville">
+                            <p>Scott</p>
+                            <p>${ bellevilleBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isKnobNoster ? 
+                        <div className="baseNameCont" id="showKnobNoster">
+                            <p>Whiteman</p>
+                            <p>${ knobNosterBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isLittleRock ? 
+                        <div className="baseNameCont" id="showLittleRock">
+                            <p>Little Rock</p>
+                            <p>${ littleRockBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMinot ? 
+                        <div className="baseNameCont" id="showMinot">
+                            <p>Minot</p>
+                            <p>${ minotBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isGrandForks ? 
+                        <div className="baseNameCont" id="showGrandForks">
+                            <p>Grand Forks</p>
+                            <p>${ grandForksBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isOffutt ? 
+                        <div className="baseNameCont" id="showOffutt">
+                            <p>Offutt</p>
+                            <p>${ offuttBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isWichita ? 
+                        <div className="baseNameCont" id="showWichita">
+                            <p>McConnell</p>
+                            <p>${ wichitaBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isEnida ? 
+                        <div className="baseNameCont" id="showEnida">
+                            <p>Vance</p>
+                            <p>${ enidBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isOklahomaCity ? 
+                        <div className="baseNameCont" id="showOklahomaCity">
+                            <p>Tinker</p>
+                            <p>${ oklahomaCityBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAltus ? 
+                        <div className="baseNameCont" id="showAltus">
+                            <p>Altus</p>
+                            <p>${ altusBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isWichitaFalls ? 
+                        <div className="baseNameCont" id="showWichitaFalls">
+                            <p>Sheppard</p>
+                            <p>${ wichitaFallsBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isSanAngelo ? 
+                        <div className="baseNameCont" id="showSanAngelo">
+                            <p>Goodfellow</p>
+                            <p>${ sanAngeloBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAbilene ? 
+                        <div className="baseNameCont" id="showAbilene">
+                            <p>Dyess</p>
+                            <p>${ abileneBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isDelRio ? 
+                        <div className="baseNameCont" id="showDelRio">
+                            <p>Laughlin</p>
+                            <p>${ delRioBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isSanAntonio ? 
+                        <div className="baseNameCont" id="showSanAntonio">
+                            <p>Joint Base San Antonio-Lackland/Joint Base San Antonio-Randolph</p>
+                            <p>${ sanAntonioBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isRapidCity ? 
+                        <div className="baseNameCont" id="showRapidCity">
+                            <p>Ellsworth</p>
+                            <p>${ rapidCityBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isCheyenne ? 
+                        <div className="baseNameCont" id="showCheyenne">
+                            <p>F.E. Warren,</p>
+                            <p>${ cheyenneBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAurora ? 
+                        <div className="baseNameCont" id="showAurora">
+                            <p>Buckley</p>
+                            <p>${ auroraBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isColoradoSprings ? 
+                        <div className="baseNameCont" id="showColoradoSprings">
+                            <p>Peterson</p>
+                            <p>${ coloradoSpringsBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isClovis ? 
+                        <div className="baseNameCont" id="showClovis">
+                            <p>Cannon</p>
+                            <p>${ clovisBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAlbuqurque ? 
+                        <div className="baseNameCont" id="showAlbuqurque">
+                            <p>Kirtland</p>
+                            <p>${ albuqurqueBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAlamogordo ? 
+                        <div className="baseNameCont" id="showAlamogordo">
+                            <p>Holloman</p>
+                            <p>${ alamogordoBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isGreatFalls ? 
+                        <div className="baseNameCont" id="showGreatFalls">
+                            <p>Malmstrom</p>
+                            <p>${ greatFallsBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isSpokane ? 
+                        <div className="baseNameCont" id="showSpokane">
+                            <p>Fairchild</p>
+                            <p>${ spokaneBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTakoma ? 
+                        <div className="baseNameCont" id="showTakoma">
+                            <p>Joint Base Lewis-McChord</p>
+                            <p>${ tacomaBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMountainHome ? 
+                        <div className="baseNameCont" id="showMountainHome">
+                            <p>Mountain Home</p>
+                            <p>${ mountainHomeBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isOgden ? 
+                        <div className="baseNameCont" id="showOgden">
+                            <p>Hill</p>
+                            <p>${ ogdenBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMarysville ? 
+                        <div className="baseNameCont" id="showMarysville">
+                            <p>Beale</p>
+                            <p>${ marysvilleBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTravis ? 
+                        <div className="baseNameCont" id="showTravis">
+                            <p>Travis</p>
+                            <p>${ fairfieldBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isLasVegas ? 
+                        <div className="baseNameCont" id="showLasVegas">
+                            <p>Nellis</p>
+                            <p>${ lasVegasBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isIndianSprings ? 
+                        <div className="baseNameCont" id="showIndianSprings">
+                            <p>Creech</p>
+                            <p>${ indianSpringsBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isRosamond ? 
+                        <div className="baseNameCont" id="showRosamond">
+                            <p>Edwards</p>
+                            <p>${ rosamondBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isLompoc ? 
+                        <div className="baseNameCont" id="showLompoc">
+                            <p>Vandenberg</p>
+                            <p>${ lompocBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isElSegundo ? 
+                        <div className="baseNameCont" id="showElSegundo">
+                            <p>Los Angeles</p>
+                            <p>${ elSegundoBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAnchorage ? 
+                        <div className="baseNameCont" id="showAnchorage">
+                            <p>Joint Base Elmendorf-Richardson</p>
+                            <p>${ anchorageBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isFairbanks ? 
+                        <div className="baseNameCont" id="showFairbanks">
+                            <p>Eielson</p>
+                            <p>${ eielsonBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isHonolulu ? 
+                        <div className="baseNameCont" id="showHonolulu">
+                            <p>Joint Base Pearl Harbor-Hickam</p>
+                            <p>${ honoluluBAHDep[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                </div>
+            :
+                <div>
+                    { isDc ?
+                        <div className="baseNameCont" id="showDc">
+                            <p>Joint Base Andrews</p>
+                            <p>${ dcBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isBoston ? 
+                        <div className="baseNameCont" id="showBoston">
+                            <p>Hanscom</p>
+                            <p>${ bostonBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTrenton ? 
+                        <div className="baseNameCont" id="showTrenton">
+                            <p>Joint Base Mcguire-Dix-Lakehurst</p>
+                            <p>${ trentonBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isDover ? 
+                        <div className="baseNameCont" id="showDover">
+                            <p>Dover</p>
+                            <p>${ doverBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isHampton ? 
+                        <div className="baseNameCont" id="showHampton">
+                            <p>Joint Base Langely-Eustis</p>
+                            <p>${ hamptonBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isGoldsboro ? 
+                        <div className="baseNameCont" id="showGoldsboro">
+                            <p>Seymour-Johnson</p>
+                            <p>${ goldsboroBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isCharleston ? 
+                        <div className="baseNameCont" id="showCharleston">
+                            <p>Joint Base Charleston</p>
+                            <p>${ charlestonBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isSumter ? 
+                        <div className="baseNameCont" id="showSumter">
+                            <p>Shaw</p>
+                            <p>${ sumterBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTullahoma ? 
+                        <div className="baseNameCont" id="showTullahoma">
+                            <p>Arnold</p>
+                            <p>${ tullahomaBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isColumbus ? 
+                        <div className="baseNameCont" id="showColumbus">
+                            <p>Columbus</p>
+                            <p>${ columbusBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMontgomery ? 
+                        <div className="baseNameCont" id="showMontgomery">
+                            <p>Maxwell</p>
+                            <p>${ montgomeryBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isValdosta ? 
+                        <div className="baseNameCont" id="showValdosta">
+                            <p>Moody</p>
+                            <p>${ valdostaBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMacon ? 
+                        <div className="baseNameCont" id="showMacon">
+                            <p>Robins</p>
+                            <p>${ maconBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isBiloxi ? 
+                        <div className="baseNameCont" id="showBiloxi">
+                            <p>Keesler</p>
+                            <p>${ biloxiBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isValparaiso ? 
+                        <div className="baseNameCont" id="showValparaiso">
+                            <p>Eglin</p>
+                            <p>${ valparaisoBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isPanamaCity ? 
+                        <div className="baseNameCont" id="showPanamaCity">
+                            <p>Tyndall</p>
+                            <p>${ panamaCityBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTampa ? 
+                        <div className="baseNameCont" id="showTampa">
+                            <p>Macdill</p>
+                            <p>${ tampaBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isCocoaBeach ? 
+                        <div className="baseNameCont" id="showCocoaBeach">
+                            <p>Patrick</p>
+                            <p>${ cocoaBeachBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isDayton ? 
+                        <div className="baseNameCont" id="showDayton">
+                            <p>Wright-Patterson</p>
+                            <p>${ daytonBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isBelleville ? 
+                        <div className="baseNameCont" id="showBelleville">
+                            <p>Scott</p>
+                            <p>${ bellevilleBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isKnobNoster ? 
+                        <div className="baseNameCont" id="showKnobNoster">
+                            <p>Whiteman</p>
+                            <p>${ knobNosterBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isLittleRock ? 
+                        <div className="baseNameCont" id="showLittleRock">
+                            <p>Little Rock</p>
+                            <p>${ littleRockBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMinot ? 
+                        <div className="baseNameCont" id="showMinot">
+                            <p>Minot</p>
+                            <p>${ minotBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isGrandForks ? 
+                        <div className="baseNameCont" id="showGrandForks">
+                            <p>Grand Forks</p>
+                            <p>${ grandForksBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isOffutt ? 
+                        <div className="baseNameCont" id="showOffutt">
+                            <p>Offutt</p>
+                            <p>${ offuttBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isWichita ? 
+                        <div className="baseNameCont" id="showWichita">
+                            <p>McConnell</p>
+                            <p>${ wichitaBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isEnida ? 
+                        <div className="baseNameCont" id="showEnida">
+                            <p>Vance</p>
+                            <p>${ enidBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isOklahomaCity ? 
+                        <div className="baseNameCont" id="showOklahomaCity">
+                            <p>Tinker</p>
+                            <p>${ oklahomaCityBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAltus ? 
+                        <div className="baseNameCont" id="showAltus">
+                            <p>Altus</p>
+                            <p>${ altusBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isWichitaFalls ? 
+                        <div className="baseNameCont" id="showWichitaFalls">
+                            <p>Sheppard</p>
+                            <p>${ wichitaFallsBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isSanAngelo ? 
+                        <div className="baseNameCont" id="showSanAngelo">
+                            <p>Goodfellow</p>
+                            <p>${ sanAngeloBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAbilene ? 
+                        <div className="baseNameCont" id="showAbilene">
+                            <p>Dyess</p>
+                            <p>${ abileneBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isDelRio ? 
+                        <div className="baseNameCont" id="showDelRio">
+                            <p>Laughlin</p>
+                            <p>${ delRioBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isSanAntonio ? 
+                        <div className="baseNameCont" id="showSanAntonio">
+                            <p>Joint Base San Antonio-Lackland/Joint Base San Antonio-Randolph</p>
+                            <p>${ sanAntonioBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isRapidCity ? 
+                        <div className="baseNameCont" id="showRapidCity">
+                            <p>Ellsworth</p>
+                            <p>${ rapidCityBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isCheyenne ? 
+                        <div className="baseNameCont" id="showCheyenne">
+                            <p>F.E. Warren,</p>
+                            <p>${ cheyenneBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAurora ? 
+                        <div className="baseNameCont" id="showAurora">
+                            <p>Buckley</p>
+                            <p>${ auroraBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isColoradoSprings ? 
+                        <div className="baseNameCont" id="showColoradoSprings">
+                            <p>Peterson</p>
+                            <p>${ coloradoSpringsBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isClovis ? 
+                        <div className="baseNameCont" id="showClovis">
+                            <p>Cannon</p>
+                            <p>${ clovisBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAlbuqurque ? 
+                        <div className="baseNameCont" id="showAlbuqurque">
+                            <p>Kirtland</p>
+                            <p>${ albuqurqueBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAlamogordo ? 
+                        <div className="baseNameCont" id="showAlamogordo">
+                            <p>Holloman</p>
+                            <p>${ alamogordoBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isGreatFalls ? 
+                        <div className="baseNameCont" id="showGreatFalls">
+                            <p>Malmstrom</p>
+                            <p>${ greatFallsBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isSpokane ? 
+                        <div className="baseNameCont" id="showSpokane">
+                            <p>Fairchild</p>
+                            <p>${ spokaneBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTakoma ? 
+                        <div className="baseNameCont" id="showTakoma">
+                            <p>Joint Base Lewis-McChord</p>
+                            <p>${ tacomaBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMountainHome ? 
+                        <div className="baseNameCont" id="showMountainHome">
+                            <p>Mountain Home</p>
+                            <p>${ mountainHomeBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isOgden ? 
+                        <div className="baseNameCont" id="showOgden">
+                            <p>Hill</p>
+                            <p>${ ogdenBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isMarysville ? 
+                        <div className="baseNameCont" id="showMarysville">
+                            <p>Beale</p>
+                            <p>${ marysvilleBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isTravis ? 
+                        <div className="baseNameCont" id="showTravis">
+                            <p>Travis</p>
+                            <p>${ fairfieldBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isLasVegas ? 
+                        <div className="baseNameCont" id="showLasVegas">
+                            <p>Nellis</p>
+                            <p>${ lasVegasBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isIndianSprings ? 
+                        <div className="baseNameCont" id="showIndianSprings">
+                            <p>Creech</p>
+                            <p>${ indianSpringsBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isRosamond ? 
+                        <div className="baseNameCont" id="showRosamond">
+                            <p>Edwards</p>
+                            <p>${ rosamondBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isLompoc ? 
+                        <div className="baseNameCont" id="showLompoc">
+                            <p>Vandenberg</p>
+                            <p>${ lompocBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isElSegundo ? 
+                        <div className="baseNameCont" id="showElSegundo">
+                            <p>Los Angeles</p>
+                            <p>${ elSegundoBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isAnchorage ? 
+                        <div className="baseNameCont" id="showAnchorage">
+                            <p>Joint Base Elmendorf-Richardson</p>
+                            <p>${ anchorageBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isFairbanks ? 
+                        <div className="baseNameCont" id="showFairbanks">
+                            <p>Eielson</p>
+                            <p>${ eielsonBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                    { isHonolulu ? 
+                        <div className="baseNameCont" id="showHonolulu">
+                            <p>Joint Base Pearl Harbor-Hickam</p>
+                            <p>${ honoluluBAH[rank]}</p>
+                        </div> 
+                    : <div></div> }
+                </div>
+            }
         </div>
     )
 }

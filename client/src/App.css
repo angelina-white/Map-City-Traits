@@ -42,8 +42,20 @@ path:hover {
   background-color: lightblue;
 }
 
-.red {
-  background-color: red;
+.white {
+  background-color: white;
+}
+
+.lightGreen {
+  background-color: lightgreen;
+}
+
+.green {
+  background-color: green;
+}
+
+.darkGreen {
+  background-color: black;
 }
 
 li:hover {
