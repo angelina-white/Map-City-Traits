@@ -58,6 +58,27 @@ function App()
   const [isDelRio, setIsDelRio] = useState(false)
   const [isSanAntonio, setIsSanAntonio] = useState(false)
   const [isRapidCity, setIsRapidCity] = useState(false)
+  const [isCheyenne, setIsCheyenne] = useState(false)
+  const [isAurora, setIsAurora] = useState(false)
+  const [isColoradoSprings, setIsColoradoSprings] = useState(false)
+  const [isClovis, setIsClovis] = useState(false)
+  const [isAlbuqurque, setIsAlbuqurque] = useState(false)
+  const [isAlamogordo, setIsAlamogordo] = useState(false)
+  const [isGreatFalls, setIsGreatFalls] = useState(false)
+  const [isSpokane, setIsSpokane] = useState(false)
+  const [isTakoma, setIsTakoma] = useState(false)
+  const [isMountainHome, setIsMountainHome] = useState(false)
+  const [isOgden, setIsOgden] = useState(false)
+  const [isMarysville, setIsMarysville] = useState(false)
+  const [isTravis, setIsTravis] = useState(false)
+  const [isLasVegas, setIsLasVegas] = useState(false)
+  const [isIndianSprings, setIsIndianSprings] = useState(false)
+  const [isRosamond, setIsRosamond] = useState(false)
+  const [isLompoc, setIsLompoc] = useState(false)
+  const [isElSegundo, setIsElSegundo] = useState(false)
+  const [isAnchorage, setIsAnchorage] = useState(false)
+  const [isFairbanks, setIsFairbanks] = useState(false)
+  const [isHonolulu, setIsHonolulu] = useState(false)
 
   return (
     <div className="App">
@@ -98,27 +119,27 @@ function App()
       <div className="circle" id="delRio" onMouseOver={ ()=> setIsDelRio(true) } onMouseLeave={ ()=> setIsDelRio(false) }/>
       <div className="circle" id="sanAntonio" onMouseOver={ ()=> setIsSanAntonio(true) } onMouseLeave={ ()=> setIsSanAntonio(false) }/>
       <div className="circle" id="rapidCity" onMouseOver={ ()=> setIsRapidCity(true) } onMouseLeave={ ()=> setIsRapidCity(false) }/>
-      <div className="circle" id="cheyenne" />
-      <div className="circle" id="aurora" />
-      <div className="circle" id="coloradoSprings" />
-      <div className="circle" id="clovis" />
-      <div className="circle" id="albuqurque" />
-      <div className="circle" id="alamogordo" />
-      <div className="circle" id="greatFalls" />
-      <div className="circle" id="spokane" />
-      <div className="circle" id="takoma" />
-      <div className="circle" id="mountainHome" />
-      <div className="circle" id="ogden" />
-      <div className="circle" id="marysville" />
-      <div className="circle" id="fairchild" />
-      <div className="circle" id="lasVegas" />
-      <div className="circle" id="indianSprings" />
-      <div className="circle" id="rosamond" />
-      <div className="circle" id="lompoc" />
-      <div className="circle" id="elSegundo" />
-      <div className="circle" id="anchorage" />
-      <div className="circle" id="fairbanks" />
-      <div className="circle" id="honolulu" />
+      <div className="circle" id="cheyenne" onMouseOver={ ()=> setIsCheyenne(true) } onMouseLeave={ ()=> setIsCheyenne(false) }/>
+      <div className="circle" id="aurora" onMouseOver={ ()=> setIsAurora(true) } onMouseLeave={ ()=> setIsAurora(false) }/>
+      <div className="circle" id="coloradoSprings" onMouseOver={ ()=> setIsColoradoSprings(true) } onMouseLeave={ ()=> setIsColoradoSprings(false) }/>
+      <div className="circle" id="clovis" onMouseOver={ ()=> setIsClovis(true) } onMouseLeave={ ()=> setIsClovis(false) }/>
+      <div className="circle" id="albuqurque" onMouseOver={ ()=> setIsAlbuqurque(true) } onMouseLeave={ ()=> setIsAlbuqurque(false) }/>
+      <div className="circle" id="alamogordo" onMouseOver={ ()=> setIsAlamogordo(true) } onMouseLeave={ ()=> setIsAlamogordo(false) }/>
+      <div className="circle" id="greatFalls" onMouseOver={ ()=> setIsGreatFalls(true) } onMouseLeave={ ()=> setIsGreatFalls(false) }/>
+      <div className="circle" id="spokane" onMouseOver={ ()=> setIsSpokane(true) } onMouseLeave={ ()=> setIsSpokane(false) }/>
+      <div className="circle" id="takoma" onMouseOver={ ()=> setIsTakoma(true) } onMouseLeave={ ()=> setIsTakoma(false) }/>
+      <div className="circle" id="mountainHome" onMouseOver={ ()=> setIsMountainHome(true) } onMouseLeave={ ()=> setIsMountainHome(false) }/>
+      <div className="circle" id="ogden" onMouseOver={ ()=> setIsOgden(true) } onMouseLeave={ ()=> setIsOgden(false) }/>
+      <div className="circle" id="marysville" onMouseOver={ ()=> setIsMarysville(true) } onMouseLeave={ ()=> setIsMarysville(false) }/>
+      <div className="circle" id="travis" onMouseOver={ ()=> setIsTravis(true) } onMouseLeave={ ()=> setIsTravis(false) }/>
+      <div className="circle" id="lasVegas" onMouseOver={ ()=> setIsLasVegas(true) } onMouseLeave={ ()=> setIsLasVegas(false) }/>
+      <div className="circle" id="indianSprings" onMouseOver={ ()=> setIsIndianSprings(true) } onMouseLeave={ ()=> setIsIndianSprings(false) }/>
+      <div className="circle" id="rosamond" onMouseOver={ ()=> setIsRosamond(true) } onMouseLeave={ ()=> setIsRosamond(false) }/>
+      <div className="circle" id="lompoc" onMouseOver={ ()=> setIsLompoc(true) } onMouseLeave={ ()=> setIsLompoc(false) }/>
+      <div className="circle" id="elSegundo" onMouseOver={ ()=> setIsElSegundo(true) } onMouseLeave={ ()=> setIsElSegundo(false) }/>
+      <div className="circle" id="anchorage" onMouseOver={ ()=> setIsAnchorage(true) } onMouseLeave={ ()=> setIsAnchorage(false) }/>
+      <div className="circle" id="fairbanks" onMouseOver={ ()=> setIsFairbanks(true) } onMouseLeave={ ()=> setIsFairbanks(false) }/>
+      <div className="circle" id="honolulu" onMouseOver={ ()=> setIsHonolulu(true) } onMouseLeave={ ()=> setIsHonolulu(false) }/>
 
       { isDc ? 
         <div className="baseNameCont" id="showDc">
@@ -328,6 +349,132 @@ function App()
         <div className="baseNameCont" id="showRapidCity">
           <p>Ellsworth,</p>
           <p>Rapid City, SD</p>
+        </div> 
+      : <div></div> }
+      { isCheyenne ? 
+        <div className="baseNameCont" id="showCheyenne">
+          <p>F.E. Warren,</p>
+          <p>Cheyenne, WY</p>
+        </div> 
+      : <div></div> }
+      { isAurora ? 
+        <div className="baseNameCont" id="showAurora">
+          <p>Buckley,</p>
+          <p>Aurora, CO</p>
+        </div> 
+      : <div></div> }
+      { isColoradoSprings ? 
+        <div className="baseNameCont" id="showColoradoSprings">
+          <p>Peterson,</p>
+          <p>Colorado Springs, CO</p>
+        </div> 
+      : <div></div> }
+      { isClovis ? 
+        <div className="baseNameCont" id="showClovis">
+          <p>Cannon,</p>
+          <p>Clovis, NM</p>
+        </div> 
+      : <div></div> }
+      { isAlbuqurque ? 
+        <div className="baseNameCont" id="showAlbuqurque">
+          <p>Kirtland,</p>
+          <p>Albuqurque, NM</p>
+        </div> 
+      : <div></div> }
+      { isAlamogordo ? 
+        <div className="baseNameCont" id="showAlamogordo">
+          <p>Holloman,</p>
+          <p>Alamogordo, NM</p>
+        </div> 
+      : <div></div> }
+      { isGreatFalls ? 
+        <div className="baseNameCont" id="showGreatFalls">
+          <p>Malmstrom,</p>
+          <p>Great Falls, MT</p>
+        </div> 
+      : <div></div> }
+      { isSpokane ? 
+        <div className="baseNameCont" id="showSpokane">
+          <p>Fairchild,</p>
+          <p>Spokane, WA</p>
+        </div> 
+      : <div></div> }
+      { isTakoma ? 
+        <div className="baseNameCont" id="showTakoma">
+          <p>Joint Base Lewis-McChord,</p>
+          <p>Tacoma, WA</p>
+        </div> 
+      : <div></div> }
+      { isMountainHome ? 
+        <div className="baseNameCont" id="showMountainHome">
+          <p>Mountain Home,</p>
+          <p>Mountain Home, ID</p>
+        </div> 
+      : <div></div> }
+      { isOgden ? 
+        <div className="baseNameCont" id="showOgden">
+          <p>Hill,</p>
+          <p>Ogden, UT</p>
+        </div> 
+      : <div></div> }
+      { isMarysville ? 
+        <div className="baseNameCont" id="showMarysville">
+          <p>Beale,</p>
+          <p>Marysville, CA</p>
+        </div> 
+      : <div></div> }
+      { isTravis ? 
+        <div className="baseNameCont" id="showTravis">
+          <p>Travis,</p>
+          <p>Fairfield, CA</p>
+        </div> 
+      : <div></div> }
+      { isLasVegas ? 
+        <div className="baseNameCont" id="showLasVegas">
+          <p>Nellis,</p>
+          <p>Las Vegas, NV</p>
+        </div> 
+      : <div></div> }
+      { isIndianSprings ? 
+        <div className="baseNameCont" id="showIndianSprings">
+          <p>Creech,</p>
+          <p>Indian Springs, NV</p>
+        </div> 
+      : <div></div> }
+      { isRosamond ? 
+        <div className="baseNameCont" id="showRosamond">
+          <p>Edwards,</p>
+          <p>Rosamond, CA</p>
+        </div> 
+      : <div></div> }
+      { isLompoc ? 
+        <div className="baseNameCont" id="showLompoc">
+          <p>Vandenberg,</p>
+          <p>Lompoc, CA</p>
+        </div> 
+      : <div></div> }
+      { isElSegundo ? 
+        <div className="baseNameCont" id="showElSegundo">
+          <p>Los Angeles,</p>
+          <p>El Segundo, CA</p>
+        </div> 
+      : <div></div> }
+      { isAnchorage ? 
+        <div className="baseNameCont" id="showAnchorage">
+          <p>Joint Base Elmendorf-Richardson,</p>
+          <p>Anchorage, AK</p>
+        </div> 
+      : <div></div> }
+      { isFairbanks ? 
+        <div className="baseNameCont" id="showFairbanks">
+          <p>Eielson,</p>
+          <p>Fairbanks, AK</p>
+        </div> 
+      : <div></div> }
+      { isHonolulu ? 
+        <div className="baseNameCont" id="showHonolulu">
+          <p>Joint Base Pearl Harbor-Hickam,</p>
+          <p>Honolulu, HI</p>
         </div> 
       : <div></div> }
     </div>

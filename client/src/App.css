@@ -259,7 +259,7 @@ path:hover {
   margin-left: -910px;
 }
 
-#fairchild {
+#travis {
   margin-top: 250px;
   margin-left: -920px;
 }
@@ -532,4 +532,130 @@ path:hover {
   position: absolute;
   margin-top: -475px;
   margin-left: 380px;
+}
+
+#showCheyenne {
+  position: absolute;
+  margin-top: -425px;
+  margin-left: 343px;
+}
+
+#showAurora {
+  position: absolute;
+  margin-top: -387px;
+  margin-left: 343px;
+}
+
+#showColoradoSprings {
+  position: absolute;
+  margin-top: -368px;
+  margin-left: 343px;
+}
+
+#showClovis {
+  position: absolute;
+  margin-top: -268px;
+  margin-left: 358px;
+}
+
+#showAlbuqurque {
+  position: absolute;
+  margin-top: -270px;
+  margin-left: 306px;
+}
+
+#showAlamogordo {
+  position: absolute;
+  margin-top: -239px;
+  margin-left: 316px;
+}
+
+#showGreatFalls {
+  position: absolute;
+  margin-top: -565px;
+  margin-left: 263px;
+}
+
+#showSpokane {
+  position: absolute;
+  margin-top: -590px;
+  margin-left: 170px;
+}
+
+#showTakoma {
+  position: absolute;
+  margin-top: -620px;
+  margin-left: 108px;
+}
+
+#showMountainHome {
+  position: absolute;
+  margin-top: -490px;
+  margin-left: 180px;
+}
+
+#showOgden {
+  position: absolute;
+  margin-top: -440px;
+  margin-left: 233px;
+}
+
+#showMarysville {
+  position: absolute;
+  margin-top: -430px;
+  margin-left: 67px;
+}
+
+#showTravis {
+  position: absolute;
+  margin-top: -390px;
+  margin-left: 56px;
+}
+
+#showLasVegas {
+  position: absolute;
+  margin-top: -333px;
+  margin-left: 156px;
+}
+
+#showIndianSprings {
+  position: absolute;
+  margin-top: -347px;
+  margin-left: 150px;
+}
+
+#showRosamond {
+  position: absolute;
+  margin-top: -325px;
+  margin-left: 89px;
+}
+
+#showLompoc {
+  position: absolute;
+  margin-top: -323px;
+  margin-left: 60px;
+}
+
+#showElSegundo {
+  position: absolute;
+  margin-top: -300px;
+  margin-left: 90px;
+}
+
+#showAnchorage {
+  position: absolute;
+  margin-top: -110px;
+  margin-left: 132px;
+}
+
+#showFairbanks {
+  position: absolute;
+  margin-top: -143px;
+  margin-left: 138px;
+}
+
+#showHonolulu {
+  position: absolute;
+  margin-top: -115px;
+  margin-left: 295px;
 }
