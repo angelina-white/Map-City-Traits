@@ -7,12 +7,16 @@ path:hover {
 } */
 
 .circle {
-  height: 10px;
-  width: 10px;
-  background-color: pink;
+  height: 12px;
+  width: 12px;
+  background-color: navy;
   border-radius: 50%;
   display: inline-block;
   position: absolute;
+}
+
+.circle:hover {
+  background-color: lightblue;
 }
 
 #dc {
@@ -75,9 +79,14 @@ path:hover {
   margin-left: -306px;
 }
 
-#atlanta {
-  margin-top: 380px;
-  margin-left: -270px;
+#valdosta{
+  margin-top: 435px;
+  margin-left: -250px;
+}
+
+#macon {
+  margin-top: 400px;
+  margin-left: -255px;
 }
 
 #biloxi {
@@ -293,4 +302,234 @@ path:hover {
 #honolulu {
   margin-top: 523px;
   margin-left: -683px;
+}
+
+.baseNameCont {
+  /* height: 90px;
+  width: 175px; */
+  height: auto;
+  width: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: lightblue;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#showDc {
+  position: absolute;
+  margin-top: -390px;
+  margin-left: 813px;
+}
+
+#showBoston {
+  position: absolute;
+  margin-top: -485px;
+  margin-left: 895px;
+}
+
+#showTrenton {
+  position: absolute;
+  margin-top: -430px;
+  margin-left: 840px;
+}
+
+#showDover {
+  position: absolute;
+  margin-top: -400px;
+  margin-left: 840px;
+}
+
+#showHampton {
+  position: absolute;
+  margin-top: -360px;
+  margin-left: 830px;
+}
+
+#showGoldsboro {
+  position: absolute;
+  margin-top: -312px;
+  margin-left: 816px;
+}
+
+#showCharleston {
+  position: absolute;
+  margin-top: -250px;
+  margin-left: 786px;
+}
+
+#showSumter {
+  position: absolute;
+  margin-top: -275px;
+  margin-left: 778px;
+}
+
+#showSumter {
+  position: absolute;
+  margin-top: -275px;
+  margin-left: 778px;
+}
+
+#showTullahoma {
+  position: absolute;
+  margin-top: -290px;
+  margin-left: 654px;
+}
+
+#showColumbus {
+  position: absolute;
+  margin-top: -240px;
+  margin-left: 624px;
+}
+
+#showMontgomery {
+  position: absolute;
+  margin-top: -225px;
+  margin-left: 672px;
+}
+
+#showValdosta {
+  position: absolute;
+  margin-top: -200px;
+  margin-left: 728px;
+}
+
+#showMacon {
+  position: absolute;
+  margin-top: -238px;
+  margin-left: 721px;
+}
+
+#showBiloxi {
+  position: absolute;
+  margin-top: -180px;
+  margin-left: 627px;
+}
+
+#showValparaiso {
+  position: absolute;
+  margin-top: -180px;
+  margin-left: 673px;
+}
+
+#showPanamaCity {
+  position: absolute;
+  margin-top: -175px;
+  margin-left: 695px;
+}
+
+#showTampa{
+  position: absolute;
+  margin-top: -140px;
+  margin-left: 758px;
+}
+
+#showCocoaBeach{
+  position: absolute;
+  margin-top: -145px;
+  margin-left: 795px;
+}
+
+#showDayton{
+  position: absolute;
+  margin-top: -390px;
+  margin-left: 705px;
+}
+
+#showBelleville{
+  position: absolute;
+  margin-top: -363px;
+  margin-left: 597px;
+}
+
+#showKnobNoster{
+  position: absolute;
+  margin-top: -363px;
+  margin-left: 537px;
+}
+
+#showLittleRock {
+  position: absolute;
+  margin-top: -270px;
+  margin-left: 553px;
+}
+
+#showMinot {
+  position: absolute;
+  margin-top: -553px;
+  margin-left: 419px;
+}
+
+#showGrandForks {
+  position: absolute;
+  margin-top: -553px;
+  margin-left: 478px;
+}
+
+#showOffutt {
+  position: absolute;
+  margin-top: -418px;
+  margin-left: 490px;
+}
+
+#showWichita {
+  position: absolute;
+  margin-top: -340px;
+  margin-left: 474px;
+}
+
+#showEnida {
+  position: absolute;
+  margin-top: -300px;
+  margin-left: 458px;
+}
+
+#showOklahomaCity {
+  position: absolute;
+  margin-top: -280px;
+  margin-left: 472px;
+}
+
+#showAltus {
+  position: absolute;
+  margin-top: -269px;
+  margin-left: 437px;
+}
+
+#showWichitaFalls {
+  position: absolute;
+  margin-top: -240px;
+  margin-left: 449px;
+}
+
+#showSanAngelo {
+  position: absolute;
+  margin-top: -200px;
+  margin-left: 408px;
+}
+
+#showAbilene {
+  position: absolute;
+  margin-top: -217px;
+  margin-left: 417px;
+}
+
+#showDelRio {
+  position: absolute;
+  margin-top: -155px;
+  margin-left: 400px;
+}
+
+#showSanAntonio {
+  position: absolute;
+  margin-top: -155px;
+  margin-left: 445px;
+}
+
+#showRapidCity {
+  position: absolute;
+  margin-top: -475px;
+  margin-left: 380px;
 }
