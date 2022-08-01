@@ -47,14 +47,18 @@ path:hover {
 }
 
 .lightGreen {
-  background-color: lightgreen;
+  background-color: rgb(182, 240, 182);
 }
 
 .green {
-  background-color: green;
+  background-color: rgb(5, 255, 5);
 }
 
 .darkGreen {
+  background-color: green;
+}
+
+.darkest {
   background-color: black;
 }
 

@@ -61,9 +61,6 @@ function BAH()
     const [isFairbanks, setIsFairbanks] = useState(false)
     const [isHonolulu, setIsHonolulu] = useState(false)
 
-    const [isDependents, setIsDependents] = useState(false)
-    const [rank, setRank] = useState(0)
-
     const dcBAH = [1905, 1905, 1905, 1905, 2175, 2319, 2358, 2499, 2661]
     const dcBAHDep = [2355, 2355, 2355, 2355, 2388, 2928, 2955, 2982, 3120]
 
@@ -232,48 +229,55 @@ function BAH()
     const honoluluBAH = [2004, 2004, 2004, 2004, 2220, 2412, 2682, 2991, 3015]
     const honoluluBAHDep = [2670, 2670, 2670, 2670, 2961, 3081, 3258, 3456, 3633]
 
+    const [isDependents, setIsDependents] = useState(false)
+    const [rank, setRank] = useState(0)
 
-
-    const [dcColor, setDcColor] = useState('circle')
-
-    function findDcColor(num)
+    function findColor(city, cityDep, num, setter, bool)
     {
-        if (isDependents == true)
+        if (bool === true)
         {
-            if (dcBAHDep[rank] > 0 && dcBAHDep[rank] <= 1000)
+            if (cityDep[num] > 0 && cityDep[num] <= 1000)
             {   
-                setDcColor("circle white")
+                setter("circle white")
             }
-            else if (dcBAHDep[rank] > 1000 && dcBAHDep[rank] <= 1500)
+            else if (cityDep[num] > 1000 && cityDep[num] <= 1500)
             {
-                setDcColor("circle lightGreen")
+                setter("circle lightGreen")
             }
-            else if (dcBAHDep[rank] > 1500 && dcBAHDep[rank] <= 2000)
+            else if (cityDep[num] > 1500 && cityDep[num] <= 2000)
             {
-                setDcColor("circle green")
+                setter("circle green")
             }
-            else if (dcBAHDep[rank] > 2000)
+            else if (cityDep[num] > 2000 && cityDep[num] <= 3000)
             {
-                setDcColor("circle darkGreen")
+                setter("circle darkGreen")
+            }
+            else
+            {
+                setter("circle darkest")
             }
         }
         else
         {
-            if (dcBAH[num] > 0 && dcBAH[num] <= 1000)
+            if (city[num] > 0 && city[num] <= 1000)
             {
-                setDcColor("circle white")
+                setter("circle white")
             }
-            else if (dcBAH[num] > 1000 && dcBAH[num] <= 1500)
+            else if (city[num] > 1000 && city[num] <= 1500)
             {
-                setDcColor("circle lightGreen")
+                setter("circle lightGreen")
             }
-            else if (dcBAH[num] > 1500 && dcBAH[num] <= 2000)
+            else if (city[num] > 1500 && city[num] <= 2000)
             {
-                setDcColor("circle green")
+                setter("circle green")
             }
-            else if (dcBAH[num] > 2000)
+            else if (city[num] && city[num] <= 3000)
             {
-                setDcColor("circle darkGreen")
+                setter("circle darkGreen")
+            }
+            else
+            {
+                setter("circle darkest")
             }
         }
     }
@@ -281,68 +285,185 @@ function BAH()
     function clickDependents()
     {
         setIsDependents(true)
-        findDcColor(rank)
+        sendRankToColor(rank, true)
     }
 
     function clickNoDependents()
     {
         setIsDependents(false)
-        findDcColor(rank)
+        sendRankToColor(rank, false)
     }
 
     function click1()
     {
         setRank(0)
-        findDcColor(0)
+        sendRankToColor(0, isDependents)
     }
 
     function click2()
     {
         setRank(1)
-        findDcColor(1)
+        sendRankToColor(1, isDependents)
     }
 
     function click3()
     {
         setRank(2)
-        findDcColor(2)
+        sendRankToColor(2, isDependents)
     }
 
     function click4()
     {
         setRank(3)
-        findDcColor(3)
+        sendRankToColor(3, isDependents)
     }
 
     function click5()
     {
         setRank(4)
-        findDcColor(4)
+        sendRankToColor(4, isDependents)
     }
 
     function click6()
     {
         setRank(5)
-        findDcColor(5)
+        sendRankToColor(5, isDependents)
     }
 
     function click7()
     {
         setRank(6)
-        findDcColor(6)
+        sendRankToColor(6, isDependents)
     }
 
     function click8()
     {
         setRank(7)
-        findDcColor(7)
+        sendRankToColor(7, isDependents)
     }
 
     function click9()
     {
         setRank(8)
-        findDcColor(8)
+        sendRankToColor(8, isDependents)
     }
+
+    function sendRankToColor(num, bool)
+    {
+        findColor(dcBAH, dcBAHDep, num, setDcColor, bool)
+        findColor(bostonBAH, bostonBAHDep, num, setBostonColor, bool)
+        findColor(trentonBAH, trentonBAHDep, num, setTrentonColor, bool)
+        findColor(doverBAH, doverBAHDep, num, setDoverColor, bool)
+        findColor(hamptonBAH, hamptonBAHDep, num, setHamptonColor, bool)
+        findColor(goldsboroBAH, goldsboroBAHDep, num, setGoldsboroColor, bool)
+        findColor(charlestonBAH, charlestonBAHDep, num, setCharlestonColor, bool)
+        findColor(sumterBAH, sumterBAHDep, num, setSumterColor, bool)
+        findColor(tullahomaBAH, tullahomaBAHDep, num, setTullahomaColor, bool)
+        findColor(columbusBAH, columbusBAHDep, num, setColumbusColor, bool)
+        findColor(montgomeryBAH, montgomeryBAHDep, num, setMontgomeryColor, bool)
+        findColor(valdostaBAH, valdostaBAHDep, num, setValdostaColor, bool)
+        findColor(maconBAH, maconBAHDep, num, setMaconColor, bool)
+        findColor(biloxiBAH, biloxiBAHDep, num, setBiloxiColor, bool)
+        findColor(valparaisoBAH, valparaisoBAHDep, num, setValparaisoColor, bool)
+        findColor(panamaCityBAH, panamaCityBAHDep, num, setPanamaCityColor, bool)
+        findColor(tampaBAH, tampaBAHDep, num, setTampaColor, bool)
+        findColor(cocoaBeachBAH, cocoaBeachBAHDep, num, setCocoaBeachColor, bool)
+        findColor(daytonBAH, daytonBAHDep, num, setDaytonColor, bool)
+        findColor(bellevilleBAH, bellevilleBAHDep, num, setBellevilleColor, bool)
+        findColor(knobNosterBAH, knobNosterBAHDep, num, setKnobNosterColor, bool)
+        findColor(littleRockBAH, littleRockBAHDep, num, setLittleRockColor, bool)
+        findColor(minotBAH, minotBAHDep, num, setMinotColor, bool)
+        findColor(grandForksBAH, grandForksBAHDep, num, setGrandForksColor, bool)
+        findColor(offuttBAH, offuttBAHDep, num, setOffuttColor, bool)
+        findColor(wichitaBAH, wichitaBAHDep, num, setWichitaColor, bool)
+        findColor(enidBAH, enidBAHDep, num, setEnidaColor, bool)
+        findColor(oklahomaCityBAH, oklahomaCityBAHDep, num, setOklahomaCityColor, bool)
+        findColor(altusBAH, altusBAHDep, num, setAltusColor, bool)
+        findColor(wichitaFallsBAH, wichitaFallsBAHDep, num, setWichitaFallsColor, bool)
+        findColor(sanAngeloBAH, sanAngeloBAHDep, num, setSanAngeloColor, bool)
+        findColor(abileneBAH, abileneBAHDep, num, setAbileneColor, bool)
+        findColor(delRioBAH, delRioBAHDep, num, setDelRioColor, bool)
+        findColor(sanAntonioBAH, sanAntonioBAHDep, num, setSanAntonioColor, bool)
+        findColor(rapidCityBAH, rapidCityBAHDep, num, setRapidCityColor, bool)
+        findColor(cheyenneBAH, cheyenneBAHDep, num, setCheyenneColor, bool)
+        findColor(auroraBAH, auroraBAHDep, num, setAuroraColor, bool)
+        findColor(coloradoSpringsBAH, coloradoSpringsBAHDep, num, setColoradoSpringsColor, bool)
+        findColor(clovisBAH, clovisBAHDep, num, setClovisColor, bool)
+        findColor(albuqurqueBAH, albuqurqueBAHDep, num, setAlbuquerqueColor, bool)
+        findColor(alamogordoBAH, alamogordoBAHDep, num, setAlamogordoColor, bool)
+        findColor(greatFallsBAH, greatFallsBAHDep, num, setGreatFallsColor, bool)
+        findColor(spokaneBAH, spokaneBAHDep, num, setSpokaneColor, bool)
+        findColor(tacomaBAH, tacomaBAHDep, num, setTakomaColor, bool)
+        findColor(mountainHomeBAH, mountainHomeBAHDep, num, setMountainHomeColor, bool)
+        findColor(ogdenBAH, ogdenBAHDep, num, setOgdenColor, bool)
+        findColor(marysvilleBAH, marysvilleBAHDep, num, setMarysvilleColor, bool)
+        findColor(fairfieldBAH, fairfieldBAHDep, num, setTravisColor, bool)
+        findColor(lasVegasBAH, lasVegasBAHDep, num, setLasVegasColor, bool)
+        findColor(indianSpringsBAH, indianSpringsBAHDep, num, setIndianSpringsColor, bool)
+        findColor(rosamondBAH, rosamondBAHDep, num, setRosamondColor, bool)
+        findColor(lompocBAH, lompocBAHDep, num, setLompocColor, bool)
+        findColor(elSegundoBAH, elSegundoBAHDep, num, setElSegundoColor, bool)
+        findColor(anchorageBAH, anchorageBAHDep, num, setAnchorageColor, bool)
+        findColor(eielsonBAH, eielsonBAHDep, num, setFairbanksColor, bool)
+        findColor(honoluluBAH, honoluluBAHDep, num, setHonoluluColor, bool)
+    }
+
+    const [dcColor, setDcColor] = useState('circle')
+    const [bostonColor, setBostonColor] = useState('circle')
+    const [trentonColor, setTrentonColor] = useState('circle')
+    const [doverColor, setDoverColor] = useState('circle')
+    const [hamptonColor, setHamptonColor] = useState('circle')
+    const [goldsboroColor, setGoldsboroColor] = useState('circle')
+    const [charlestonColor, setCharlestonColor] = useState('circle')
+    const [sumterColor, setSumterColor] = useState('circle')
+    const [tullahomaColor, setTullahomaColor] = useState('circle')
+    const [columbusColor, setColumbusColor] = useState('circle')
+    const [montgomeryColor, setMontgomeryColor] = useState('circle')
+    const [valdostaColor, setValdostaColor] = useState('circle')
+    const [maconColor, setMaconColor] = useState('circle')
+    const [biloxiColor, setBiloxiColor] = useState('circle')
+    const [valparaisoColor, setValparaisoColor] = useState('circle')
+    const [panamaCityColor, setPanamaCityColor] = useState('circle')
+    const [tampaColor, setTampaColor] = useState('circle')
+    const [cocoaBeachColor, setCocoaBeachColor] = useState('circle')
+    const [daytonColor, setDaytonColor] = useState('circle')
+    const [bellevilleColor, setBellevilleColor] = useState('circle')
+    const [knobNosterColor, setKnobNosterColor] = useState('circle')
+    const [littleRockColor, setLittleRockColor] = useState('circle')
+    const [minotColor, setMinotColor] = useState('circle')
+    const [grandForksColor, setGrandForksColor] = useState('circle')
+    const [offuttColor, setOffuttColor] = useState('circle')
+    const [wichitaColor, setWichitaColor] = useState('circle')
+    const [enidaColor, setEnidaColor] = useState('circle')
+    const [oklahomaCityColor, setOklahomaCityColor] = useState('circle')
+    const [altusColor, setAltusColor] = useState('circle')
+    const [wichitaFallsColor, setWichitaFallsColor] = useState('circle')
+    const [sanAngeloColor, setSanAngeloColor] = useState('circle')
+    const [abileneColor, setAbileneColor] = useState('circle')
+    const [delRioColor, setDelRioColor] = useState('circle')
+    const [sanAntonioColor, setSanAntonioColor] = useState('circle')
+    const [rapidCityColor, setRapidCityColor] = useState('circle')
+    const [cheyenneColor, setCheyenneColor] = useState('circle')
+    const [auroraColor, setAuroraColor] = useState('circle')
+    const [coloradoSpringsColor, setColoradoSpringsColor] = useState('circle')
+    const [clovisColor, setClovisColor] = useState('circle')
+    const [albuqurqueColor, setAlbuquerqueColor] = useState('circle')
+    const [alamogordoColor, setAlamogordoColor] = useState('circle')
+    const [greatFallsColor, setGreatFallsColor] = useState('circle')
+    const [spokaneColor, setSpokaneColor] = useState('circle')
+    const [takomaColor, setTakomaColor] = useState('circle')
+    const [mountainHomeColor, setMountainHomeColor] = useState('circle')
+    const [ogdenColor, setOgdenColor] = useState('circle')
+    const [marysvilleColor, setMarysvilleColor] = useState('circle')
+    const [travisColor, setTravisColor] = useState('circle')
+    const [lasVegasColor, setLasVegasColor] = useState('circle')
+    const [indianSpringsColor, setIndianSpringsColor] = useState('circle')
+    const [rosamondColor, setRosamondColor] = useState('circle')
+    const [lompocColor, setLompocColor] = useState('circle')
+    const [elSegundoColor, setElSegundoColor] = useState('circle')
+    const [anchorageColor, setAnchorageColor] = useState('circle')
+    const [fairbanksColor, setFairbanksColor] = useState('circle')
+    const [honoluluColor, setHonoluluColor] = useState('circle')
 
     return (
         <div className="mapContainer">
@@ -452,61 +573,61 @@ function BAH()
             {/* <USAMap customize={statesCustomConfig()} onClick={mapHandler} /> */}
             <USAMap />
             <div className={ dcColor } id="dc" onMouseOver={ ()=> setIsDc(true) } onMouseLeave={ ()=> setIsDc(false) } />
-            <div className="circle" id="boston" onMouseOver={ ()=> setIsBoston(true) } onMouseLeave={ ()=> setIsBoston(false) }/>
-            <div className="circle" id="trenton" onMouseOver={ ()=> setIsTrenton(true) } onMouseLeave={ ()=> setIsTrenton(false) }/>
-            <div className="circle" id="dover" onMouseOver={ ()=> setIsDover(true) } onMouseLeave={ ()=> setIsDover(false) }/>
-            <div className="circle" id="hampton" onMouseOver={ ()=> setIsHampton(true) } onMouseLeave={ ()=> setIsHampton(false) }/>
-            <div className="circle" id="goldsboro" onMouseOver={ ()=> setIsGoldsboro(true) } onMouseLeave={ ()=> setIsGoldsboro(false) }/>
-            <div className="circle" id="charleston" onMouseOver={ ()=> setIsCharleston(true) } onMouseLeave={ ()=> setIsCharleston(false) }/>
-            <div className="circle" id="sumter" onMouseOver={ ()=> setIsSumter(true) } onMouseLeave={ ()=> setIsSumter(false) }/>
-            <div className="circle" id="tullahoma" onMouseOver={ ()=> setIsTullahoma(true) } onMouseLeave={ ()=> setIsTullahoma(false) }/>
-            <div className="circle" id="columbus" onMouseOver={ ()=> setIsColumbus(true) } onMouseLeave={ ()=> setIsColumbus(false) }/>
-            <div className="circle" id="montgomery" onMouseOver={ ()=> setIsMontgomery(true) } onMouseLeave={ ()=> setIsMontgomery(false) }/>
-            <div className="circle" id="valdosta" onMouseOver={ ()=> setIsValdosta(true) } onMouseLeave={ ()=> setIsValdosta(false) }/>
-            <div className="circle" id="macon" onMouseOver={ ()=> setIsMacon(true) } onMouseLeave={ ()=> setIsMacon(false) }/>
-            <div className="circle" id="biloxi" onMouseOver={ ()=> setIsBiloxi(true) } onMouseLeave={ ()=> setIsBiloxi(false) }/>
-            <div className="circle" id="valparaiso" onMouseOver={ ()=> setIsValparaiso(true) } onMouseLeave={ ()=> setIsValparaiso(false) }/>
-            <div className="circle" id="panamaCity" onMouseOver={ ()=> setIsPanamaCity(true) } onMouseLeave={ ()=> setIsPanamaCity(false) }/>
-            <div className="circle" id="tampa" onMouseOver={ ()=> setIsTampa(true) } onMouseLeave={ ()=> setIsTampa(false) }/>
-            <div className="circle" id="cocoaBeach" onMouseOver={ ()=> setIsCocoaBeach(true) } onMouseLeave={ ()=> setIsCocoaBeach(false) }/>
-            <div className="circle" id="dayton" onMouseOver={ ()=> setIsDayton(true) } onMouseLeave={ ()=> setIsDayton(false) }/>
-            <div className="circle" id="belleville" onMouseOver={ ()=> setIsBelleville(true) } onMouseLeave={ ()=> setIsBelleville(false) }/>
-            <div className="circle" id="knobNoster" onMouseOver={ ()=> setIsKnobNoster(true) } onMouseLeave={ ()=> setIsKnobNoster(false) }/>
-            <div className="circle" id="littleRock" onMouseOver={ ()=> setIsLittleRock(true) } onMouseLeave={ ()=> setIsLittleRock(false) }/>
-            <div className="circle" id="minot" onMouseOver={ ()=> setIsMinot(true) } onMouseLeave={ ()=> setIsMinot(false) }/>
-            <div className="circle" id="grandForks" onMouseOver={ ()=> setIsGrandForks(true) } onMouseLeave={ ()=> setIsGrandForks(false) }/>
-            <div className="circle" id="offutt" onMouseOver={ ()=> setIsOffutt(true) } onMouseLeave={ ()=> setIsOffutt(false) }/>
-            <div className="circle" id="wichita" onMouseOver={ ()=> setIsWichita(true) } onMouseLeave={ ()=> setIsWichita(false) }/>
-            <div className="circle" id="enida" onMouseOver={ ()=> setIsEnida(true) } onMouseLeave={ ()=> setIsEnida(false) } />
-            <div className="circle" id="oklahomaCity" onMouseOver={ ()=> setIsOklahoma(true) } onMouseLeave={ ()=> setIsOklahoma(false) } />
-            <div className="circle" id="altus" onMouseOver={ ()=> setIsAltus(true) } onMouseLeave={ ()=> setIsAltus(false) } />
-            <div className="circle" id="wichitaFalls" onMouseOver={ ()=> setIsWichitaFalls(true) } onMouseLeave={ ()=> setIsWichitaFalls(false) } />
-            <div className="circle" id="sanAngelo" onMouseOver={ ()=> setIsSanAngelo(true) } onMouseLeave={ ()=> setIsSanAngelo(false) } />
-            <div className="circle" id="abilene" onMouseOver={ ()=> setIsAbilene(true) } onMouseLeave={ ()=> setIsAbilene(false) }/>
-            <div className="circle" id="delRio" onMouseOver={ ()=> setIsDelRio(true) } onMouseLeave={ ()=> setIsDelRio(false) }/>
-            <div className="circle" id="sanAntonio" onMouseOver={ ()=> setIsSanAntonio(true) } onMouseLeave={ ()=> setIsSanAntonio(false) }/>
-            <div className="circle" id="rapidCity" onMouseOver={ ()=> setIsRapidCity(true) } onMouseLeave={ ()=> setIsRapidCity(false) }/>
-            <div className="circle" id="cheyenne" onMouseOver={ ()=> setIsCheyenne(true) } onMouseLeave={ ()=> setIsCheyenne(false) }/>
-            <div className="circle" id="aurora" onMouseOver={ ()=> setIsAurora(true) } onMouseLeave={ ()=> setIsAurora(false) }/>
-            <div className="circle" id="coloradoSprings" onMouseOver={ ()=> setIsColoradoSprings(true) } onMouseLeave={ ()=> setIsColoradoSprings(false) }/>
-            <div className="circle" id="clovis" onMouseOver={ ()=> setIsClovis(true) } onMouseLeave={ ()=> setIsClovis(false) }/>
-            <div className="circle" id="albuqurque" onMouseOver={ ()=> setIsAlbuqurque(true) } onMouseLeave={ ()=> setIsAlbuqurque(false) }/>
-            <div className="circle" id="alamogordo" onMouseOver={ ()=> setIsAlamogordo(true) } onMouseLeave={ ()=> setIsAlamogordo(false) }/>
-            <div className="circle" id="greatFalls" onMouseOver={ ()=> setIsGreatFalls(true) } onMouseLeave={ ()=> setIsGreatFalls(false) }/>
-            <div className="circle" id="spokane" onMouseOver={ ()=> setIsSpokane(true) } onMouseLeave={ ()=> setIsSpokane(false) }/>
-            <div className="circle" id="takoma" onMouseOver={ ()=> setIsTakoma(true) } onMouseLeave={ ()=> setIsTakoma(false) }/>
-            <div className="circle" id="mountainHome" onMouseOver={ ()=> setIsMountainHome(true) } onMouseLeave={ ()=> setIsMountainHome(false) }/>
-            <div className="circle" id="ogden" onMouseOver={ ()=> setIsOgden(true) } onMouseLeave={ ()=> setIsOgden(false) }/>
-            <div className="circle" id="marysville" onMouseOver={ ()=> setIsMarysville(true) } onMouseLeave={ ()=> setIsMarysville(false) }/>
-            <div className="circle" id="travis" onMouseOver={ ()=> setIsTravis(true) } onMouseLeave={ ()=> setIsTravis(false) }/>
-            <div className="circle" id="lasVegas" onMouseOver={ ()=> setIsLasVegas(true) } onMouseLeave={ ()=> setIsLasVegas(false) }/>
-            <div className="circle" id="indianSprings" onMouseOver={ ()=> setIsIndianSprings(true) } onMouseLeave={ ()=> setIsIndianSprings(false) }/>
-            <div className="circle" id="rosamond" onMouseOver={ ()=> setIsRosamond(true) } onMouseLeave={ ()=> setIsRosamond(false) }/>
-            <div className="circle" id="lompoc" onMouseOver={ ()=> setIsLompoc(true) } onMouseLeave={ ()=> setIsLompoc(false) }/>
-            <div className="circle" id="elSegundo" onMouseOver={ ()=> setIsElSegundo(true) } onMouseLeave={ ()=> setIsElSegundo(false) }/>
-            <div className="circle" id="anchorage" onMouseOver={ ()=> setIsAnchorage(true) } onMouseLeave={ ()=> setIsAnchorage(false) }/>
-            <div className="circle" id="fairbanks" onMouseOver={ ()=> setIsFairbanks(true) } onMouseLeave={ ()=> setIsFairbanks(false) }/>
-            <div className="circle" id="honolulu" onMouseOver={ ()=> setIsHonolulu(true) } onMouseLeave={ ()=> setIsHonolulu(false) }/>
+            <div className={ bostonColor } id="boston" onMouseOver={ ()=> setIsBoston(true) } onMouseLeave={ ()=> setIsBoston(false) }/>
+            <div className={ trentonColor } id="trenton" onMouseOver={ ()=> setIsTrenton(true) } onMouseLeave={ ()=> setIsTrenton(false) }/>
+            <div className={ doverColor } id="dover" onMouseOver={ ()=> setIsDover(true) } onMouseLeave={ ()=> setIsDover(false) }/>
+            <div className={ hamptonColor } id="hampton" onMouseOver={ ()=> setIsHampton(true) } onMouseLeave={ ()=> setIsHampton(false) }/>
+            <div className={ goldsboroColor } id="goldsboro" onMouseOver={ ()=> setIsGoldsboro(true) } onMouseLeave={ ()=> setIsGoldsboro(false) }/>
+            <div className={ charlestonColor } id="charleston" onMouseOver={ ()=> setIsCharleston(true) } onMouseLeave={ ()=> setIsCharleston(false) }/>
+            <div className={ sumterColor } id="sumter" onMouseOver={ ()=> setIsSumter(true) } onMouseLeave={ ()=> setIsSumter(false) }/>
+            <div className={ tullahomaColor } id="tullahoma" onMouseOver={ ()=> setIsTullahoma(true) } onMouseLeave={ ()=> setIsTullahoma(false) }/>
+            <div className={ columbusColor } id="columbus" onMouseOver={ ()=> setIsColumbus(true) } onMouseLeave={ ()=> setIsColumbus(false) }/>
+            <div className={ montgomeryColor } id="montgomery" onMouseOver={ ()=> setIsMontgomery(true) } onMouseLeave={ ()=> setIsMontgomery(false) }/>
+            <div className={ valdostaColor } id="valdosta" onMouseOver={ ()=> setIsValdosta(true) } onMouseLeave={ ()=> setIsValdosta(false) }/>
+            <div className={ maconColor } id="macon" onMouseOver={ ()=> setIsMacon(true) } onMouseLeave={ ()=> setIsMacon(false) }/>
+            <div className={ biloxiColor } id="biloxi" onMouseOver={ ()=> setIsBiloxi(true) } onMouseLeave={ ()=> setIsBiloxi(false) }/>
+            <div className={ valparaisoColor } id="valparaiso" onMouseOver={ ()=> setIsValparaiso(true) } onMouseLeave={ ()=> setIsValparaiso(false) }/>
+            <div className={ panamaCityColor } id="panamaCity" onMouseOver={ ()=> setIsPanamaCity(true) } onMouseLeave={ ()=> setIsPanamaCity(false) }/>
+            <div className={ tampaColor } id="tampa" onMouseOver={ ()=> setIsTampa(true) } onMouseLeave={ ()=> setIsTampa(false) }/>
+            <div className={ cocoaBeachColor } id="cocoaBeach" onMouseOver={ ()=> setIsCocoaBeach(true) } onMouseLeave={ ()=> setIsCocoaBeach(false) }/>
+            <div className={ daytonColor } id="dayton" onMouseOver={ ()=> setIsDayton(true) } onMouseLeave={ ()=> setIsDayton(false) }/>
+            <div className={ bellevilleColor } id="belleville" onMouseOver={ ()=> setIsBelleville(true) } onMouseLeave={ ()=> setIsBelleville(false) }/>
+            <div className={ knobNosterColor } id="knobNoster" onMouseOver={ ()=> setIsKnobNoster(true) } onMouseLeave={ ()=> setIsKnobNoster(false) }/>
+            <div className={ littleRockColor } id="littleRock" onMouseOver={ ()=> setIsLittleRock(true) } onMouseLeave={ ()=> setIsLittleRock(false) }/>
+            <div className={ minotColor } id="minot" onMouseOver={ ()=> setIsMinot(true) } onMouseLeave={ ()=> setIsMinot(false) }/>
+            <div className={ grandForksColor } id="grandForks" onMouseOver={ ()=> setIsGrandForks(true) } onMouseLeave={ ()=> setIsGrandForks(false) }/>
+            <div className={ offuttColor } id="offutt" onMouseOver={ ()=> setIsOffutt(true) } onMouseLeave={ ()=> setIsOffutt(false) }/>
+            <div className={ wichitaColor } id="wichita" onMouseOver={ ()=> setIsWichita(true) } onMouseLeave={ ()=> setIsWichita(false) }/>
+            <div className={ enidaColor } id="enida" onMouseOver={ ()=> setIsEnida(true) } onMouseLeave={ ()=> setIsEnida(false) } />
+            <div className={ oklahomaCityColor } id="oklahomaCity" onMouseOver={ ()=> setIsOklahoma(true) } onMouseLeave={ ()=> setIsOklahoma(false) } />
+            <div className={ altusColor } id="altus" onMouseOver={ ()=> setIsAltus(true) } onMouseLeave={ ()=> setIsAltus(false) } />
+            <div className={ wichitaFallsColor } id="wichitaFalls" onMouseOver={ ()=> setIsWichitaFalls(true) } onMouseLeave={ ()=> setIsWichitaFalls(false) } />
+            <div className={ sanAngeloColor } id="sanAngelo" onMouseOver={ ()=> setIsSanAngelo(true) } onMouseLeave={ ()=> setIsSanAngelo(false) } />
+            <div className={ abileneColor } id="abilene" onMouseOver={ ()=> setIsAbilene(true) } onMouseLeave={ ()=> setIsAbilene(false) }/>
+            <div className={ delRioColor } id="delRio" onMouseOver={ ()=> setIsDelRio(true) } onMouseLeave={ ()=> setIsDelRio(false) }/>
+            <div className={ sanAntonioColor } id="sanAntonio" onMouseOver={ ()=> setIsSanAntonio(true) } onMouseLeave={ ()=> setIsSanAntonio(false) }/>
+            <div className={ rapidCityColor } id="rapidCity" onMouseOver={ ()=> setIsRapidCity(true) } onMouseLeave={ ()=> setIsRapidCity(false) }/>
+            <div className={ cheyenneColor } id="cheyenne" onMouseOver={ ()=> setIsCheyenne(true) } onMouseLeave={ ()=> setIsCheyenne(false) }/>
+            <div className={ auroraColor } id="aurora" onMouseOver={ ()=> setIsAurora(true) } onMouseLeave={ ()=> setIsAurora(false) }/>
+            <div className={ coloradoSpringsColor } id="coloradoSprings" onMouseOver={ ()=> setIsColoradoSprings(true) } onMouseLeave={ ()=> setIsColoradoSprings(false) }/>
+            <div className={ clovisColor } id="clovis" onMouseOver={ ()=> setIsClovis(true) } onMouseLeave={ ()=> setIsClovis(false) }/>
+            <div className={ albuqurqueColor } id="albuqurque" onMouseOver={ ()=> setIsAlbuqurque(true) } onMouseLeave={ ()=> setIsAlbuqurque(false) }/>
+            <div className={ alamogordoColor } id="alamogordo" onMouseOver={ ()=> setIsAlamogordo(true) } onMouseLeave={ ()=> setIsAlamogordo(false) }/>
+            <div className={ greatFallsColor } id="greatFalls" onMouseOver={ ()=> setIsGreatFalls(true) } onMouseLeave={ ()=> setIsGreatFalls(false) }/>
+            <div className={ spokaneColor } id="spokane" onMouseOver={ ()=> setIsSpokane(true) } onMouseLeave={ ()=> setIsSpokane(false) }/>
+            <div className={ takomaColor } id="takoma" onMouseOver={ ()=> setIsTakoma(true) } onMouseLeave={ ()=> setIsTakoma(false) }/>
+            <div className={ mountainHomeColor } id="mountainHome" onMouseOver={ ()=> setIsMountainHome(true) } onMouseLeave={ ()=> setIsMountainHome(false) }/>
+            <div className={ ogdenColor } id="ogden" onMouseOver={ ()=> setIsOgden(true) } onMouseLeave={ ()=> setIsOgden(false) }/>
+            <div className={ marysvilleColor } id="marysville" onMouseOver={ ()=> setIsMarysville(true) } onMouseLeave={ ()=> setIsMarysville(false) }/>
+            <div className={ travisColor } id="travis" onMouseOver={ ()=> setIsTravis(true) } onMouseLeave={ ()=> setIsTravis(false) }/>
+            <div className={ lasVegasColor } id="lasVegas" onMouseOver={ ()=> setIsLasVegas(true) } onMouseLeave={ ()=> setIsLasVegas(false) }/>
+            <div className={ indianSpringsColor } id="indianSprings" onMouseOver={ ()=> setIsIndianSprings(true) } onMouseLeave={ ()=> setIsIndianSprings(false) }/>
+            <div className={ rosamondColor } id="rosamond" onMouseOver={ ()=> setIsRosamond(true) } onMouseLeave={ ()=> setIsRosamond(false) }/>
+            <div className={ lompocColor } id="lompoc" onMouseOver={ ()=> setIsLompoc(true) } onMouseLeave={ ()=> setIsLompoc(false) }/>
+            <div className={ elSegundoColor } id="elSegundo" onMouseOver={ ()=> setIsElSegundo(true) } onMouseLeave={ ()=> setIsElSegundo(false) }/>
+            <div className={ anchorageColor } id="anchorage" onMouseOver={ ()=> setIsAnchorage(true) } onMouseLeave={ ()=> setIsAnchorage(false) }/>
+            <div className={ fairbanksColor } id="fairbanks" onMouseOver={ ()=> setIsFairbanks(true) } onMouseLeave={ ()=> setIsFairbanks(false) }/>
+            <div className={ honoluluColor } id="honolulu" onMouseOver={ ()=> setIsHonolulu(true) } onMouseLeave={ ()=> setIsHonolulu(false) }/>
 
 
             {isDependents ?
