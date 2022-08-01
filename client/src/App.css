@@ -114,26 +114,6 @@ path:hover {
   margin-left: -20px;
 }
 
-#to1500 {
-  background-color: rgb(182, 240, 182);
-}
-
-#to2000 {
-  background-color: rgb(5, 255, 5);
-}
-
-#to2500 {
-  background-color: green;
-}
-
-#to3000 {
-  background-color: rgb(1, 57, 1);
-}
-
-#greater3000 {
-  background-color: black;
-}
-
 li:hover {
   cursor: pointer;
 }
@@ -156,7 +136,7 @@ li:hover {
 }
 
 #climateForm {
-  margin-bottom: 235px;
+  margin-bottom: 248px;
   margin-left: -20px;
 }
 
