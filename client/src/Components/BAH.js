@@ -285,7 +285,7 @@ function BAH()
             }
             else
             {
-                setter("circle darkest")
+                setter("circle black")
             }
         }
     }
@@ -598,23 +598,23 @@ function BAH()
                         <p>{ less1000 }</p>
                     </div>
                     <div>
-                        <div className="bahCube" id="to1500"></div>
+                        <div className="bahCube lightGreen"></div>
                         <p>{ to1500 }</p>
                     </div>
                     <div>
-                        <div className="bahCube" id="to2000"></div>
+                        <div className="bahCube green"></div>
                         <p>{ to2000 }</p>
                     </div>
                     <div>
-                        <div className="bahCube" id="to2500"></div>
+                        <div className="bahCube darkGreen"></div>
                         <p>{ to2500 }</p>
                     </div>
                     <div>
-                        <div className="bahCube" id="to3000"></div>
+                        <div className="bahCube darkestGreen"></div>
                         <p>{ to3000 }</p>
                     </div>
                     <div>
-                        <div className="bahCube" id="greater3000"></div>
+                        <div className="bahCube black"></div>
                         <p>{ greater3000 }</p>
                     </div>
                 </div>

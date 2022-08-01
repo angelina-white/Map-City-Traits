@@ -46,6 +46,38 @@ path:hover {
   background-color: white;
 }
 
+.lightBlue {
+  background-color: rgb(183, 204, 210);
+}
+
+.blueish {
+  background-color: rgb(116, 176, 226);
+}
+
+.blue {
+  background-color: rgb(116, 116, 226);
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.orange {
+  background-color: rgb(255, 204, 0);
+}
+
+.reddish {
+  background-color: rgb(255, 111, 0);
+}
+
+.red {
+  background-color: red;
+}
+
+.black {
+  background-color: black;
+}
+
 .lightGreen {
   background-color: rgb(182, 240, 182);
 }
@@ -61,11 +93,6 @@ path:hover {
 .darkestGreen {
   background-color: rgb(1, 57, 1);
 }
-
-.darkest {
-  background-color: black;
-}
-
 
 #dependentsForm {
   margin-bottom: 10px;
@@ -119,6 +146,18 @@ li:hover {
   position: absolute;
   margin-top: -25px;
   margin-left: -150px;
+}
+
+#climateButtons {
+  position: absolute;
+  margin-top: -25px;
+  margin-left: -150px;
+  width: 75px;
+}
+
+#climateForm {
+  margin-bottom: 235px;
+  margin-left: -20px;
 }
 
 #dc {

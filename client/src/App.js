@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Default from "./Components/Default";
 import BAH from "./Components/BAH";
+import Climate from "./Components/Climate";
 
 function App() 
 {
@@ -23,17 +24,30 @@ function App()
   //   };
   // }
 
+  const [showWeather, setShowWeather] = useState(false)
+
   const [isBAH, setIsBAH] = useState(false)
+  const [isClimate, setIsClimate] = useState(false)
 
   function clickDefault()
   {
     setIsBAH(false)
+    setIsClimate(false)
   }
 
   function clickBAH()
   {
     setIsBAH(true)
+    setIsClimate(false)
   }
+
+  function clickClimate()
+  {
+    setIsClimate(true)
+    setIsBAH(false)
+  }
+
+
 
   return (
     <div className="App">
@@ -46,12 +60,26 @@ function App()
         <h2 id="options">Options</h2>
         <h3 className="pointer" onClick={ clickDefault }>Default</h3>
         <h3 className="pointer" onClick={ clickBAH }>BAH</h3>
+        <h3 className="pointer" onClick={ () => setShowWeather((showWeather) => showWeather = !showWeather) }>Weather</h3>
+        {showWeather ?
+          <ul>
+            <li onClick={ clickClimate }>Climate</li>
+          </ul>
+        :
+          <div></div>
+        }
       </div>
 
       { isBAH ?
         <BAH />
       :
-        <Default />
+        <div>
+          { isClimate ?
+            <Climate />
+          :
+            <Default />
+          }
+        </div>
       }
     
     </div>
