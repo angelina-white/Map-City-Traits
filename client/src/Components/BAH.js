@@ -248,9 +248,13 @@ function BAH()
             {
                 setter("circle green")
             }
-            else if (cityDep[num] > 2000 && cityDep[num] <= 3000)
+            else if (cityDep[num] > 2000 && cityDep[num] <= 2500)
             {
                 setter("circle darkGreen")
+            }
+            else if (cityDep[num] > 2500 && cityDep[num] <= 3000)
+            {
+                setter("circle darkestGreen")
             }
             else
             {
@@ -271,9 +275,13 @@ function BAH()
             {
                 setter("circle green")
             }
-            else if (city[num] && city[num] <= 3000)
+            else if (city[num] > 2000 && city[num] <= 2500)
             {
                 setter("circle darkGreen")
+            }
+            else if (city[num] > 2500 && city[num] <= 3000)
+            {
+                setter("circle darkestGreen")
             }
             else
             {
@@ -470,10 +478,17 @@ function BAH()
     const [fairbanksColor, setFairbanksColor] = useState('circle')
     const [honoluluColor, setHonoluluColor] = useState('circle')
 
+    const less1000 = `< $1000`
+    const to1500 = `$1000 - $1500`
+    const to2000 = `$1500 - $2000`
+    const to2500 = `$2000 - $2500`
+    const to3000 = `$2500 - $3000`
+    const greater3000 = `> $3000`
+
     return (
         <div className="mapContainer">
             <div id="BAHButtons">
-                <Form>
+                <Form id="dependentsForm">
                 {['radio'].map((type) => (
                     <div key={`inline-${type}`} className="mb-3">
                     <Form.Check
@@ -497,7 +512,7 @@ function BAH()
                 ))}
                 </Form>
 
-                <Form>
+                <Form id="rankForm">
                     {['radio'].map((type) => (
                         <div key={`inline-${type}`} className="mb-3">
                         <Form.Check
@@ -576,6 +591,33 @@ function BAH()
                     </div>
                 ))}
                 </Form>
+
+                <div>
+                    <div>
+                        <div className="bahCube"></div>
+                        <p>{ less1000 }</p>
+                    </div>
+                    <div>
+                        <div className="bahCube" id="to1500"></div>
+                        <p>{ to1500 }</p>
+                    </div>
+                    <div>
+                        <div className="bahCube" id="to2000"></div>
+                        <p>{ to2000 }</p>
+                    </div>
+                    <div>
+                        <div className="bahCube" id="to2500"></div>
+                        <p>{ to2500 }</p>
+                    </div>
+                    <div>
+                        <div className="bahCube" id="to3000"></div>
+                        <p>{ to3000 }</p>
+                    </div>
+                    <div>
+                        <div className="bahCube" id="greater3000"></div>
+                        <p>{ greater3000 }</p>
+                    </div>
+                </div>
             </div>
             {/* <USAMap customize={statesCustomConfig()} onClick={mapHandler} /> */}
             <USAMap />
