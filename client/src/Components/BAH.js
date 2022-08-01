@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import USAMap from "react-usa-map";
 import Form from 'react-bootstrap/Form';
 
@@ -229,7 +229,7 @@ function BAH()
     const honoluluBAH = [2004, 2004, 2004, 2004, 2220, 2412, 2682, 2991, 3015]
     const honoluluBAHDep = [2670, 2670, 2670, 2670, 2961, 3081, 3258, 3456, 3633]
 
-    const [isDependents, setIsDependents] = useState(false)
+    const [isDependents, setIsDependents] = useState(true)
     const [rank, setRank] = useState(0)
 
     function findColor(city, cityDep, num, setter, bool)
@@ -347,6 +347,11 @@ function BAH()
         setRank(8)
         sendRankToColor(8, isDependents)
     }
+
+    useEffect(() =>
+    {
+        sendRankToColor(rank, isDependents)
+    }, [])
 
     function sendRankToColor(num, bool)
     {
@@ -478,6 +483,7 @@ function BAH()
                         type={type}
                         id={`inline-${type}-1`}
                         onClick={ clickDependents }
+                        defaultChecked
                     />
                     <Form.Check
                         inline
@@ -501,6 +507,7 @@ function BAH()
                             type={type}
                             id={`inline-${type}-1`}
                             onClick={ click1 }
+                            defaultChecked
                         />
                         <Form.Check
                             inline
