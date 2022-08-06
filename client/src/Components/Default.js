@@ -123,338 +123,338 @@ function Default()
 
             { isDc ? 
                 <div className="baseNameCont" id="showDc">
-                <p>Joint Base Andrews,</p>
-                <p>Camp Springs, MD</p>
+                    <p>Joint Base Andrews,</p>
+                    <p>Camp Springs, MD</p>
                 </div> 
             : <div></div> }
             { isBoston ? 
                 <div className="baseNameCont" id="showBoston">
-                <p>Hanscom,</p>
-                <p>Boston, MA</p>
+                    <p>Hanscom,</p>
+                    <p>Boston, MA</p>
                 </div> 
             : <div></div> }
             { isTrenton ? 
                 <div className="baseNameCont" id="showTrenton">
-                <p>Joint Base Mcguire-Dix-Lakehurst,</p>
-                <p>Trenton, NJ</p>
+                    <p>Joint Base Mcguire-Dix-Lakehurst,</p>
+                    <p>Trenton, NJ</p>
                 </div> 
             : <div></div> }
             { isDover ? 
                 <div className="baseNameCont" id="showDover">
-                <p>Dover,</p>
-                <p>Dover, DE</p>
+                    <p>Dover,</p>
+                    <p>Dover, DE</p>
                 </div> 
             : <div></div> }
             { isHampton ? 
                 <div className="baseNameCont" id="showHampton">
-                <p>Joint Base Langely-Eustis,</p>
-                <p>Hampton, VA</p>
+                    <p>Joint Base Langely-Eustis,</p>
+                    <p>Hampton, VA</p>
                 </div> 
             : <div></div> }
             { isGoldsboro ? 
                 <div className="baseNameCont" id="showGoldsboro">
-                <p>Seymour-Johnson,</p>
-                <p>Goldsboro, NC</p>
+                    <p>Seymour-Johnson,</p>
+                    <p>Goldsboro, NC</p>
                 </div> 
             : <div></div> }
             { isCharleston ? 
                 <div className="baseNameCont" id="showCharleston">
-                <p>Joint Base Charleston,</p>
-                <p>Charleston, SC</p>
+                    <p>Joint Base Charleston,</p>
+                    <p>Charleston, SC</p>
                 </div> 
             : <div></div> }
             { isSumter ? 
                 <div className="baseNameCont" id="showSumter">
-                <p>Shaw,</p>
-                <p>Sumter, SC</p>
+                    <p>Shaw,</p>
+                    <p>Sumter, SC</p>
                 </div> 
             : <div></div> }
             { isTullahoma ? 
                 <div className="baseNameCont" id="showTullahoma">
-                <p>Arnold,</p>
-                <p>Tullahoma, TN</p>
+                    <p>Arnold,</p>
+                    <p>Tullahoma, TN</p>
                 </div> 
             : <div></div> }
             { isColumbus ? 
                 <div className="baseNameCont" id="showColumbus">
-                <p>Columbus,</p>
-                <p>Columbus, MS</p>
+                    <p>Columbus,</p>
+                    <p>Columbus, MS</p>
                 </div> 
             : <div></div> }
             { isMontgomery ? 
                 <div className="baseNameCont" id="showMontgomery">
-                <p>Maxwell,</p>
-                <p>Montgomery, AL</p>
+                    <p>Maxwell,</p>
+                    <p>Montgomery, AL</p>
                 </div> 
             : <div></div> }
             { isValdosta ? 
                 <div className="baseNameCont" id="showValdosta">
-                <p>Moody,</p>
-                <p>Valdosta, GA</p>
+                    <p>Moody,</p>
+                    <p>Valdosta, GA</p>
                 </div> 
             : <div></div> }
             { isMacon ? 
                 <div className="baseNameCont" id="showMacon">
-                <p>Robins,</p>
-                <p>Macon, GA</p>
+                    <p>Robins,</p>
+                    <p>Macon, GA</p>
                 </div> 
             : <div></div> }
             { isBiloxi ? 
                 <div className="baseNameCont" id="showBiloxi">
-                <p>Keesler,</p>
-                <p>Biloxi, MS</p>
+                    <p>Keesler,</p>
+                    <p>Biloxi, MS</p>
                 </div> 
             : <div></div> }
             { isValparaiso ? 
                 <div className="baseNameCont" id="showValparaiso">
-                <p>Eglin,</p>
-                <p>Valparaiso, FL</p>
+                    <p>Eglin,</p>
+                    <p>Valparaiso, FL</p>
                 </div> 
             : <div></div> }
             { isPanamaCity ? 
                 <div className="baseNameCont" id="showPanamaCity">
-                <p>Tyndall,</p>
-                <p>Panama City, FL</p>
+                    <p>Tyndall,</p>
+                    <p>Panama City, FL</p>
                 </div> 
             : <div></div> }
             { isTampa ? 
                 <div className="baseNameCont" id="showTampa">
-                <p>Macdill,</p>
-                <p>Tampa, FL</p>
+                    <p>Macdill,</p>
+                    <p>Tampa, FL</p>
                 </div> 
             : <div></div> }
             { isCocoaBeach ? 
                 <div className="baseNameCont" id="showCocoaBeach">
-                <p>Patrick,</p>
-                <p>Cocoa Beach, FL</p>
+                    <p>Patrick,</p>
+                    <p>Cocoa Beach, FL</p>
                 </div> 
             : <div></div> }
             { isDayton ? 
                 <div className="baseNameCont" id="showDayton">
-                <p>Wright-Patterson,</p>
-                <p>Dayton, OH</p>
+                    <p>Wright-Patterson,</p>
+                    <p>Dayton, OH</p>
                 </div> 
             : <div></div> }
             { isBelleville ? 
                 <div className="baseNameCont" id="showBelleville">
-                <p>Scott,</p>
-                <p>Belleville, IL</p>
+                    <p>Scott,</p>
+                    <p>Belleville, IL</p>
                 </div> 
             : <div></div> }
             { isKnobNoster ? 
                 <div className="baseNameCont" id="showKnobNoster">
-                <p>Whiteman,</p>
-                <p>Knob Noster, MO</p>
+                    <p>Whiteman,</p>
+                    <p>Knob Noster, MO</p>
                 </div> 
             : <div></div> }
             { isLittleRock ? 
                 <div className="baseNameCont" id="showLittleRock">
-                <p>Little Rock,</p>
-                <p>Little Rock, AR</p>
+                    <p>Little Rock,</p>
+                    <p>Little Rock, AR</p>
                 </div> 
             : <div></div> }
             { isMinot ? 
                 <div className="baseNameCont" id="showMinot">
-                <p>Minot,</p>
-                <p>Minot, ND</p>
+                    <p>Minot,</p>
+                    <p>Minot, ND</p>
                 </div> 
             : <div></div> }
             { isGrandForks ? 
                 <div className="baseNameCont" id="showGrandForks">
-                <p>Grand Forks,</p>
-                <p>Grand Forks, ND</p>
+                    <p>Grand Forks,</p>
+                    <p>Grand Forks, ND</p>
                 </div> 
             : <div></div> }
             { isOffutt ? 
                 <div className="baseNameCont" id="showOffutt">
-                <p>Offutt,</p>
-                <p>Bellvue, NE</p>
+                    <p>Offutt,</p>
+                    <p>Bellvue, NE</p>
                 </div> 
             : <div></div> }
             { isWichita ? 
                 <div className="baseNameCont" id="showWichita">
-                <p>McConnell,</p>
-                <p>Wichita, KS</p>
+                    <p>McConnell,</p>
+                    <p>Wichita, KS</p>
                 </div> 
             : <div></div> }
             { isEnida ? 
                 <div className="baseNameCont" id="showEnida">
-                <p>Vance,</p>
-                <p>Enid, OK</p>
+                    <p>Vance,</p>
+                    <p>Enid, OK</p>
                 </div> 
             : <div></div> }
             { isOklahomaCity ? 
                 <div className="baseNameCont" id="showOklahomaCity">
-                <p>Tinker,</p>
-                <p>Oklahoma City, OK</p>
+                    <p>Tinker,</p>
+                    <p>Oklahoma City, OK</p>
                 </div> 
             : <div></div> }
             { isAltus ? 
                 <div className="baseNameCont" id="showAltus">
-                <p>Altus,</p>
-                <p>Altus, OK</p>
+                    <p>Altus,</p>
+                    <p>Altus, OK</p>
                 </div> 
             : <div></div> }
             { isWichitaFalls ? 
                 <div className="baseNameCont" id="showWichitaFalls">
-                <p>Sheppard,</p>
-                <p>Wichita Falls, TX</p>
+                    <p>Sheppard,</p>
+                    <p>Wichita Falls, TX</p>
                 </div> 
             : <div></div> }
             { isSanAngelo ? 
                 <div className="baseNameCont" id="showSanAngelo">
-                <p>Goodfellow,</p>
-                <p>San Angelo, TX</p>
+                    <p>Goodfellow,</p>
+                    <p>San Angelo, TX</p>
                 </div> 
             : <div></div> }
             { isAbilene ? 
                 <div className="baseNameCont" id="showAbilene">
-                <p>Dyess,</p>
-                <p>Abilene, TX</p>
+                    <p>Dyess,</p>
+                    <p>Abilene, TX</p>
                 </div> 
             : <div></div> }
             { isDelRio ? 
                 <div className="baseNameCont" id="showDelRio">
-                <p>Laughlin,</p>
-                <p>Del Rio, TX</p>
+                    <p>Laughlin,</p>
+                    <p>Del Rio, TX</p>
                 </div> 
             : <div></div> }
             { isSanAntonio ? 
                 <div className="baseNameCont" id="showSanAntonio">
-                <p>Joint Base San Antonio-Lackland/Joint Base San Antonio-Randolph,</p>
-                <p>San Antonio, TX</p>
+                    <p>Joint Base San Antonio-Lackland/Joint Base San Antonio-Randolph,</p>
+                    <p>San Antonio, TX</p>
                 </div> 
             : <div></div> }
             { isRapidCity ? 
                 <div className="baseNameCont" id="showRapidCity">
-                <p>Ellsworth,</p>
-                <p>Rapid City, SD</p>
+                    <p>Ellsworth,</p>
+                    <p>Rapid City, SD</p>
                 </div> 
             : <div></div> }
             { isCheyenne ? 
                 <div className="baseNameCont" id="showCheyenne">
-                <p>F.E. Warren,</p>
-                <p>Cheyenne, WY</p>
+                    <p>F.E. Warren,</p>
+                    <p>Cheyenne, WY</p>
                 </div> 
             : <div></div> }
             { isAurora ? 
                 <div className="baseNameCont" id="showAurora">
-                <p>Buckley,</p>
-                <p>Aurora, CO</p>
+                    <p>Buckley,</p>
+                    <p>Aurora, CO</p>
                 </div> 
             : <div></div> }
             { isColoradoSprings ? 
                 <div className="baseNameCont" id="showColoradoSprings">
-                <p>Peterson,</p>
-                <p>Colorado Springs, CO</p>
+                    <p>Peterson,</p>
+                    <p>Colorado Springs, CO</p>
                 </div> 
             : <div></div> }
             { isClovis ? 
                 <div className="baseNameCont" id="showClovis">
-                <p>Cannon,</p>
-                <p>Clovis, NM</p>
+                    <p>Cannon,</p>
+                    <p>Clovis, NM</p>
                 </div> 
             : <div></div> }
             { isAlbuqurque ? 
                 <div className="baseNameCont" id="showAlbuqurque">
-                <p>Kirtland,</p>
-                <p>Albuqurque, NM</p>
+                    <p>Kirtland,</p>
+                    <p>Albuqurque, NM</p>
                 </div> 
             : <div></div> }
             { isAlamogordo ? 
                 <div className="baseNameCont" id="showAlamogordo">
-                <p>Holloman,</p>
-                <p>Alamogordo, NM</p>
+                    <p>Holloman,</p>
+                    <p>Alamogordo, NM</p>
                 </div> 
             : <div></div> }
             { isGreatFalls ? 
                 <div className="baseNameCont" id="showGreatFalls">
-                <p>Malmstrom,</p>
-                <p>Great Falls, MT</p>
+                    <p>Malmstrom,</p>
+                    <p>Great Falls, MT</p>
                 </div> 
             : <div></div> }
             { isSpokane ? 
                 <div className="baseNameCont" id="showSpokane">
-                <p>Fairchild,</p>
-                <p>Spokane, WA</p>
+                    <p>Fairchild,</p>
+                    <p>Spokane, WA</p>
                 </div> 
             : <div></div> }
             { isTakoma ? 
                 <div className="baseNameCont" id="showTakoma">
-                <p>Joint Base Lewis-McChord,</p>
-                <p>Tacoma, WA</p>
+                    <p>Joint Base Lewis-McChord,</p>
+                    <p>Tacoma, WA</p>
                 </div> 
             : <div></div> }
             { isMountainHome ? 
                 <div className="baseNameCont" id="showMountainHome">
-                <p>Mountain Home,</p>
-                <p>Mountain Home, ID</p>
+                    <p>Mountain Home,</p>
+                    <p>Mountain Home, ID</p>
                 </div> 
             : <div></div> }
             { isOgden ? 
                 <div className="baseNameCont" id="showOgden">
-                <p>Hill,</p>
-                <p>Ogden, UT</p>
+                    <p>Hill,</p>
+                    <p>Ogden, UT</p>
                 </div> 
             : <div></div> }
             { isMarysville ? 
                 <div className="baseNameCont" id="showMarysville">
-                <p>Beale,</p>
-                <p>Marysville, CA</p>
+                    <p>Beale,</p>
+                    <p>Marysville, CA</p>
                 </div> 
             : <div></div> }
             { isTravis ? 
                 <div className="baseNameCont" id="showTravis">
-                <p>Travis,</p>
-                <p>Fairfield, CA</p>
+                    <p>Travis,</p>
+                    <p>Fairfield, CA</p>
                 </div> 
             : <div></div> }
             { isLasVegas ? 
                 <div className="baseNameCont" id="showLasVegas">
-                <p>Nellis,</p>
-                <p>Las Vegas, NV</p>
+                    <p>Nellis,</p>
+                    <p>Las Vegas, NV</p>
                 </div> 
             : <div></div> }
             { isIndianSprings ? 
                 <div className="baseNameCont" id="showIndianSprings">
-                <p>Creech,</p>
-                <p>Indian Springs, NV</p>
+                    <p>Creech,</p>
+                    <p>Indian Springs, NV</p>
                 </div> 
             : <div></div> }
             { isRosamond ? 
                 <div className="baseNameCont" id="showRosamond">
-                <p>Edwards,</p>
-                <p>Rosamond, CA</p>
+                    <p>Edwards,</p>
+                    <p>Rosamond, CA</p>
                 </div> 
             : <div></div> }
             { isLompoc ? 
                 <div className="baseNameCont" id="showLompoc">
-                <p>Vandenberg,</p>
-                <p>Lompoc, CA</p>
+                    <p>Vandenberg,</p>
+                    <p>Lompoc, CA</p>
                 </div> 
             : <div></div> }
             { isElSegundo ? 
                 <div className="baseNameCont" id="showElSegundo">
-                <p>Los Angeles,</p>
-                <p>El Segundo, CA</p>
+                    <p>Los Angeles,</p>
+                    <p>El Segundo, CA</p>
                 </div> 
             : <div></div> }
             { isAnchorage ? 
                 <div className="baseNameCont" id="showAnchorage">
-                <p>Joint Base Elmendorf-Richardson,</p>
-                <p>Anchorage, AK</p>
+                    <p>Joint Base Elmendorf-Richardson,</p>
+                    <p>Anchorage, AK</p>
                 </div> 
             : <div></div> }
             { isFairbanks ? 
                 <div className="baseNameCont" id="showFairbanks">
-                <p>Eielson,</p>
-                <p>Fairbanks, AK</p>
+                    <p>Eielson,</p>
+                    <p>Fairbanks, AK</p>
                 </div> 
             : <div></div> }
             { isHonolulu ? 
                 <div className="baseNameCont" id="showHonolulu">
-                <p>Joint Base Pearl Harbor-Hickam,</p>
-                <p>Honolulu, HI</p>
+                    <p>Joint Base Pearl Harbor-Hickam,</p>
+                    <p>Honolulu, HI</p>
                 </div> 
             : <div></div> }
         </div>

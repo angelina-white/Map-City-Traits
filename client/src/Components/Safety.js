@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import USAMap from "react-usa-map";
 import Form from 'react-bootstrap/Form';
 
-function Climate()
+function Safety()
 {
     const [isDc, setIsDc] = useState(false)
     const [isBoston, setIsBoston] = useState(false)
@@ -118,265 +118,224 @@ function Climate()
     const [fairbanksColor, setFairbanksColor] = useState('circle')
     const [honoluluColor, setHonoluluColor] = useState('circle')
 
-    function findColor(temp, setter)
-    {
-        if (temp <= 0)
-        {
-            setter('circle white')
-        }
-        else if (temp > 0 && temp <= 32)
-        {
-            setter('circle lightBlue')
-        }
-        else if (temp > 32 && temp <= 40)
-        {
-            setter('circle blueish')
-        }
-        else if (temp > 40 && temp <= 50)
-        {
-            setter('circle blue')
-        }
-        else if (temp > 50 && temp <= 60)
-        {
-            setter('circle yellow')
-        }
-        else if (temp > 60 && temp <= 70)
-        {
-            setter('circle orange')
-        }
-        else if (temp > 70 && temp <= 80)
-        {
-            setter('circle reddish')
-        }
-        else if (temp > 80 && temp <= 90)
-        {
-            setter('circle red')
-        }
-        else
-        {
-            setter('circle black')
-        }
-    }
 
-    const [season, setSeason] = useState(0)
+    //neighborhood scout out of 100, crime grade, area vibes
+    const dcSafety = [5, "C", "F"]
+    const bostonSafety = [19, "B", "F"]
+    const trentonSafety = [14, "D", "F"]
+    const doverSafety = [4, "D", "F"]
+    const hamptonSafety = [18, "C", "D"]
+    const goldsboroSafety = [2, "D", "F"]
+    const charlestonSafety = [18, "D", "D"]
+    const sumterSafety = [5, "D", "F"]
+    const tullahomaSafety = [12, "C", "F"]
+    const columbusSafety = [40, "D", "F"]
+    const montgomerySafety = [9, "D", "F"]
+    const valdostaSafety = [9, "D", "F"]
+    const maconSafety = [6, "D", "F"]
+    const biloxiSafety = [3, "D", "F"]
+    const valparaisoSafety = [89, "B", "A"]
+    const panamaCitySafety = [3, "C", "F"]
+    const tampaSafety = [25, "C", "D"]
+    const cocoaBeachSafety = [17, "C", "D"]
+    const daytonSafety = [4, "C", "F"]
+    const bellevilleSafety = [16, "C", "F"]
+    const knobNosterSafety = [56, "C", "A"]
+    const littleRockSafety = [1, "D", "F"]
+    const minotSafety = [29, "C", "D"]
+    const grandForksSafety = [19, "B", "C"]
+    const offuttSafety = [30, "D", "B"]
+    const wichitaSafety = [2, "D", "F"]
+    const enidSafety = [13, "D", "F"]
+    const oklahomaCitySafety = [5, "D", "F"]
+    const altusSafety = [23, "D", "B"]
+    const wichitaFallSafety = [10, "D", "D"]
+    const sanAngeloSafety = [11, "D", "D"]
+    const abileneSafety = [20, "D", "D"]
+    const delRioSafety = [33, "D", "A"]
+    const sanAntonioSafety = [4, "C", "F"]
+    const rapidCitySafety = [3, "C", "F"]
+    const cheyenneSafety = [9, "D", "F"]
+    const auroraSafety = [6, "C", "F"]
+    const coloradoSpringsSafety = [7, "F"]
+    const clovisSafety = [7, "D", "F"]
+    const albuqurqueSafety = [2, "D", "F"]
+    const alamogordoSafety = [19, "D", "D"]
+    const greatFallsSafety = [3, "D", "F"]
+    const spokaneSafety = [3, "D", "F"]
+    const tacomaSafety = [1, "D", "F"]
+    const mountainHomeSafety = [63, "D", "B"]
+    const ogdenSafety = [8, "C", "F"]
+    const marysvilleSafety = [3, "D", "F"]
+    const fairfieldSafety = [15, "D", "D"]
+    const lasVegasSafety = [16, "D", "F"]
+    const indianSpringsSafety = [16, "F", "F"]
+    const rosamondSafety = [22, "D", "F"]
+    const lompocSafety = [17, "D", "F"]
+    const elSegundoSafety = [3, "C", "F"]
+    const anchorageSafety = [5, "D", "F"]
+    const fairbanksSafety = [4, "D", "F"]
+    const honoluluSafety = [14, "A", "D"]
 
-    //summer, fall, winter, spring
-    // july, oct, jan, april
-    const dcTemp = [81, 61, 39, 58]
-    const bostonTemp = [72, 60, 31, 51]
-    const trentonTemp = [76, 61, 33, 53]
-    const doverTemp = [80, 63, 36, 60]
-    const hamptonTemp = [78, 67, 42, 61]
-    const goldsboroTemp = [79, 66, 41, 60]
-    const charlestonTemp = [81, 69, 51, 65]
-    const sumterTemp = [79, 67, 43, 60]
-    const tullahomaTemp = [77, 64, 40, 57]
-    const columbusTemp = [75, 62, 32, 53]
-    const montgomeryTemp = [81, 70, 50, 65]
-    const valdostaTemp = [86, 71, 53, 65]
-    const maconTemp = [81, 68, 49, 63]
-    const biloxiTemp = [90, 78, 59, 77]
-    const valparaisoTemp = [81, 71, 51, 64]
-    const panamaCityTemp = [82, 72, 53, 66]
-    const tampaTemp = [84, 77, 62, 74]
-    const cocoaBeachTemp = [83, 78, 62, 72]
-    const daytonTemp = [75, 62, 32, 54]
-    const bellevilleTemp = [80, 62, 34, 55]
-    const knobNosterTemp = [79, 60, 34, 56]
-    const littleRockTemp = [81, 67, 43, 60]
-    const minotTemp = [74, 49, 20, 39]
-    const grandForksTemp = [73, 49, 18, 41]
-    const offuttTemp = [78, 58, 29, 32]
-    const wichitaTemp = [79, 62, 36, 55]
-    const enidTemp = [80, 64, 38, 56]
-    const oklahomaCityTemp = [80, 65, 39, 56]
-    const altusTemp = [80, 65, 39, 56]
-    const wichitaFallsTemp = [82, 69, 44, 61]
-    const sanAngeloTemp = [82, 70, 47, 65]
-    const abileneTemp = [82, 70, 46, 62]
-    const delRioTemp = [88, 78, 54, 74]
-    const sanAntonioTemp = [82, 73, 53, 71]
-    const rapidCityTemp = [76, 51, 30, 43]
-    const cheyenneTemp = [72, 49, 30, 41]
-    const auroraTemp = [77, 54, 34, 46]
-    const coloradoSpringsTemp = [73, 53, 32, 47]
-    const clovisTemp = [74, 61, 36, 54]
-    const albuqurqueTemp = [79, 58, 37, 57]
-    const alamogordoTemp = [82, 68, 45, 67]
-    const greatFallsTemp = [74, 48, 31, 42]
-    const spokaneTemp = [78, 49, 34, 49]
-    const tacomaTemp = [68, 53, 44, 53]
-    const mountainHomeTemp = [84, 55, 36, 52]
-    const ogdenTemp = [86, 53, 33, 51]
-    const marysvilleTemp = [77, 62, 49, 62]
-    const fairfieldTemp = [68, 62, 51, 59]
-    const lasVegasTemp = [95, 68, 49, 71]
-    const indianSpringsTemp = [95, 68, 49, 71]
-    const rosamondTemp = [87, 60, 45, 63]
-    const lompocTemp = [67, 61, 54, 58]
-    const elSegundoTemp = [69, 66, 58, 61]
-    const anchorageTemp = [67, 42, 24, 47]
-    const fairbanksTemp = [63, 25, -6, 33]
-    const honoluluTemp = [82, 80, 77, 76]
+    const [choice, setChoice] = useState(0)
 
     useEffect(() =>
     {
-        sendTempToColor(season)
-    }, [])
+        sendChoiceToColor(choice)
+    })
 
-    function sendTempToColor(whichSeason)
+    function clickScout()
     {
-        findColor(dcTemp[whichSeason], setDcColor)
-        findColor(bostonTemp[whichSeason], setBostonColor)
-        findColor(trentonTemp[whichSeason], setTrentonColor)
-        findColor(doverTemp[whichSeason], setDoverColor)
-        findColor(hamptonTemp[whichSeason], setHamptonColor)
-        findColor(goldsboroTemp[whichSeason], setGoldsboroColor)
-        findColor(charlestonTemp[whichSeason], setCharlestonColor)
-        findColor(sumterTemp[whichSeason], setSumterColor)
-        findColor(tullahomaTemp[whichSeason], setTullahomaColor)
-        findColor(columbusTemp[whichSeason], setColumbusColor)
-        findColor(montgomeryTemp[whichSeason], setMontgomeryColor)
-        findColor(valdostaTemp[whichSeason], setValdostaColor)
-        findColor(maconTemp[whichSeason], setMaconColor)
-        findColor(biloxiTemp[whichSeason], setBiloxiColor)
-        findColor(valparaisoTemp[whichSeason], setValparaisoColor)
-        findColor(panamaCityTemp[whichSeason], setPanamaCityColor)
-        findColor(tampaTemp[whichSeason], setTampaColor)
-        findColor(cocoaBeachTemp[whichSeason], setCocoaBeachColor)
-        findColor(daytonTemp[whichSeason], setDaytonColor)
-        findColor(bellevilleTemp[whichSeason], setBellevilleColor)
-        findColor(knobNosterTemp[whichSeason], setKnobNosterColor)
-        findColor(littleRockTemp[whichSeason], setLittleRockColor)
-        findColor(minotTemp[whichSeason], setMinotColor)
-        findColor(grandForksTemp[whichSeason], setGrandForksColor)
-        findColor(offuttTemp[whichSeason], setOffuttColor)
-        findColor(wichitaTemp[whichSeason], setWichitaColor)
-        findColor(enidTemp[whichSeason], setEnidaColor)
-        findColor(oklahomaCityTemp[whichSeason], setOklahomaCityColor)
-        findColor(altusTemp[whichSeason], setAltusColor)
-        findColor(wichitaFallsTemp[whichSeason], setWichitaFallsColor)
-        findColor(sanAngeloTemp[whichSeason], setSanAngeloColor)
-        findColor(abileneTemp[whichSeason], setAbileneColor)
-        findColor(delRioTemp[whichSeason], setDelRioColor)
-        findColor(sanAntonioTemp[whichSeason], setSanAntonioColor)
-        findColor(rapidCityTemp[whichSeason], setRapidCityColor)
-        findColor(cheyenneTemp[whichSeason], setCheyenneColor)
-        findColor(auroraTemp[whichSeason], setAuroraColor)
-        findColor(coloradoSpringsTemp[whichSeason], setColoradoSpringsColor)
-        findColor(clovisTemp[whichSeason], setClovisColor)
-        findColor(albuqurqueTemp[whichSeason], setAlbuquerqueColor)
-        findColor(alamogordoTemp[whichSeason], setAlamogordoColor)
-        findColor(greatFallsTemp[whichSeason], setGreatFallsColor)
-        findColor(spokaneTemp[whichSeason], setSpokaneColor)
-        findColor(tacomaTemp[whichSeason], setTakomaColor)
-        findColor(mountainHomeTemp[whichSeason], setMountainHomeColor)
-        findColor(ogdenTemp[whichSeason], setOgdenColor)
-        findColor(marysvilleTemp[whichSeason], setMarysvilleColor)
-        findColor(fairfieldTemp[whichSeason], setTravisColor)
-        findColor(lasVegasTemp[whichSeason], setLasVegasColor)
-        findColor(indianSpringsTemp[whichSeason], setIndianSpringsColor)
-        findColor(rosamondTemp[whichSeason], setRosamondColor)
-        findColor(lompocTemp[whichSeason], setLompocColor)
-        findColor(elSegundoTemp[whichSeason], setElSegundoColor)
-        findColor(anchorageTemp[whichSeason], setAnchorageColor)
-        findColor(fairbanksTemp[whichSeason], setFairbanksColor)
-        findColor(honoluluTemp[whichSeason], setHonoluluColor)
+        setChoice(0) 
+        sendChoiceToColor(0)
     }
 
-    function clickSummer()
+    function clickCrime()
     {
-        setSeason(0)
-        sendTempToColor(0)
+        setChoice(1)
+        sendChoiceToColor(1)
     }
 
-    function clickFall()
+    function clickArea()
     {
-        setSeason(1)
-        sendTempToColor(1)
+        setChoice(2)
+        sendChoiceToColor(2)
     }
 
-    function clickWinter()
+    function sendChoiceToColor(whichChoice)
     {
-        setSeason(2)
-        sendTempToColor(2)
+        findColor(dcSafety[whichChoice], setDcColor)
+        findColor(bostonSafety[whichChoice], setBostonColor)
+        findColor(trentonSafety[whichChoice], setTrentonColor)
+        findColor(doverSafety[whichChoice], setDoverColor)
+        findColor(hamptonSafety[whichChoice], setHamptonColor)
+        findColor(goldsboroSafety[whichChoice], setGoldsboroColor)
+        findColor(charlestonSafety[whichChoice], setCharlestonColor)
+        findColor(sumterSafety[whichChoice], setSumterColor)
+        findColor(tullahomaSafety[whichChoice], setTullahomaColor)
+        findColor(columbusSafety[whichChoice], setColumbusColor)
+        findColor(montgomerySafety[whichChoice], setMontgomeryColor)
+        findColor(valdostaSafety[whichChoice], setValdostaColor)
+        findColor(maconSafety[whichChoice], setMaconColor)
+        findColor(biloxiSafety[whichChoice], setBiloxiColor)
+        findColor(valparaisoSafety[whichChoice], setValparaisoColor)
+        findColor(panamaCitySafety[whichChoice], setPanamaCityColor)
+        findColor(tampaSafety[whichChoice], setTampaColor)
+        findColor(cocoaBeachSafety[whichChoice], setCocoaBeachColor)
+        findColor(daytonSafety[whichChoice], setDaytonColor)
+        findColor(bellevilleSafety[whichChoice], setBellevilleColor)
+        findColor(knobNosterSafety[whichChoice], setKnobNosterColor)
+        findColor(littleRockSafety[whichChoice], setLittleRockColor)
+        findColor(minotSafety[whichChoice], setMinotColor)
+        findColor(grandForksSafety[whichChoice], setGrandForksColor)
+        findColor(offuttSafety[whichChoice], setOffuttColor)
+        findColor(wichitaSafety[whichChoice], setWichitaColor)
+        findColor(enidSafety[whichChoice], setEnidaColor)
+        findColor(oklahomaCitySafety[whichChoice], setOklahomaCityColor)
+        findColor(altusSafety[whichChoice], setAltusColor)
+        findColor(wichitaFallSafety[whichChoice], setWichitaFallsColor)
+        findColor(sanAngeloSafety[whichChoice], setSanAngeloColor)
+        findColor(abileneSafety[whichChoice], setAbileneColor)
+        findColor(delRioSafety[whichChoice], setDelRioColor)
+        findColor(sanAntonioSafety[whichChoice], setSanAntonioColor)
+        findColor(rapidCitySafety[whichChoice], setRapidCityColor)
+        findColor(cheyenneSafety[whichChoice], setCheyenneColor)
+        findColor(auroraSafety[whichChoice], setAuroraColor)
+        findColor(coloradoSpringsSafety[whichChoice], setColoradoSpringsColor)
+        findColor(clovisSafety[whichChoice], setClovisColor)
+        findColor(albuqurqueSafety[whichChoice], setAlbuquerqueColor)
+        findColor(alamogordoSafety[whichChoice], setAlamogordoColor)
+        findColor(greatFallsSafety[whichChoice], setGreatFallsColor)
+        findColor(spokaneSafety[whichChoice], setSpokaneColor)
+        findColor(tacomaSafety[whichChoice], setTakomaColor)
+        findColor(mountainHomeSafety[whichChoice], setMountainHomeColor)
+        findColor(ogdenSafety[whichChoice], setOgdenColor)
+        findColor(marysvilleSafety[whichChoice], setMarysvilleColor)
+        findColor(fairfieldSafety[whichChoice], setTravisColor)
+        findColor(lasVegasSafety[whichChoice], setLasVegasColor)
+        findColor(indianSpringsSafety[whichChoice], setIndianSpringsColor)
+        findColor(rosamondSafety[whichChoice], setRosamondColor)
+        findColor(lompocSafety[whichChoice], setLompocColor)
+        findColor(elSegundoSafety[whichChoice], setElSegundoColor)
+        findColor(anchorageSafety[whichChoice], setAnchorageColor)
+        findColor(fairbanksSafety[whichChoice], setFairbanksColor)
+        findColor(honoluluSafety[whichChoice], setHonoluluColor)
     }
-    function clickSpring()
+
+    function findColor(grade, setter)
     {
-        setSeason(3)
-        sendTempToColor(3)
+        if (grade <= 20 || grade == "F")
+        {
+            setter("circle red")
+        }
+        else if (grade > 20 && grade <= 40 || grade == "D")
+        {
+            setter("circle orange")
+        }
+        else if (grade > 40 && grade <= 60 || grade == "C")
+        {
+            setter("circle yellow")
+        }
+        else if (grade > 60 && grade <= 80 || grade == "B")
+        {
+            setter("circle greenYellow")
+        }
+        else if (grade > 80 && grade <= 100 || grade == "A")
+        {
+            setter("circle green")
+        }
     }
-    
-    const less0 = "< 0°"
-    const to32 = "0° - 32°"
-    const to40 = "33° - 40°"
-    const to50 = "41° - 50°"
-    const to60 = "51° - 60°"
-    const to70 = "61° - 70°"
-    const to80 = "71° - 80°"
-    const to90 = "81° - 90°"
-    const greater90 = "> 90°"
+
+    const to20 = "0 - 20 or F"
+    const to40 = "21 - 40 or D"
+    const to60 = "41 - 60 or C"
+    const to80 = "61 - 80 or B"
+    const to100 = "81 - 100 or A"
 
     return (
         <div className="mapContainer">
 
-            <div id="climateButtons">
-                <Form id="climateForm">
+            <div id="safetyButtons">
+                <Form id="safetyForm">
                 {['radio'].map((type) => (
                     <div key={`inline-${type}`} className="mb-3">
                         <Form.Check
                             inline
-                            label="Summer"
+                            label="Neighborhood Scout"
                             name="group1"
                             type={type}
                             id={`inline-${type}-1`}
-                            onClick={ clickSummer }
+                            onClick={ clickScout }
                             defaultChecked
                         />
                         <Form.Check
                             inline
-                            label="Fall"
+                            label="Crime Grade"
                             name="group1"
                             type={type}
                             id={`inline-${type}-2`}
-                            onClick={ clickFall }
+                            onClick={ clickCrime }
                         />
                         <Form.Check
                             inline
-                            label="Winter"
+                            label="Area Vibes"
                             name="group1"
                             type={type}
                             id={`inline-${type}-2`}
-                            onClick={ clickWinter }
-                        />
-                        <Form.Check
-                            inline
-                            label="Spring"
-                            name="group1"
-                            type={type}
-                            id={`inline-${type}-2`}
-                            onClick={ clickSpring }
+                            onClick={ clickArea }
                         />
                     </div>
-                ))}
+                    ))}
                 </Form>
 
                 <div>
                     <div>
-                        <div className="bahCube"></div>
-                        <p>{ less0 }</p>
+                        <div className="bahCube green"></div>
+                        <p>{ to100 }</p>
                     </div>
                     <div>
-                        <div className="bahCube lightBlue"></div>
-                        <p>{ to32 }</p>
-                    </div>
-                    <div>
-                        <div className="bahCube blueish"></div>
-                        <p>{ to40 }</p>
-                    </div>
-                    <div>
-                        <div className="bahCube blue"></div>
-                        <p>{ to50 }</p>
+                        <div className="bahCube greenYellow"></div>
+                        <p>{ to80 }</p>
                     </div>
                     <div>
                         <div className="bahCube yellow"></div>
@@ -384,24 +343,14 @@ function Climate()
                     </div>
                     <div>
                         <div className="bahCube orange"></div>
-                        <p>{ to70 }</p>
-                    </div>
-                    <div>
-                        <div className="bahCube reddish"></div>
-                        <p>{ to80 }</p>
+                        <p>{ to40 }</p>
                     </div>
                     <div>
                         <div className="bahCube red"></div>
-                        <p>{ to90 }</p>
-                    </div>
-                    <div>
-                        <div className="bahCube black"></div>
-                        <p>{ greater90 }</p>
+                        <p>{ to20 }</p>
                     </div>
                 </div>
-
             </div>
-
 
             {/* <USAMap customize={statesCustomConfig()} onClick={mapHandler} /> */}
             <USAMap />
@@ -461,344 +410,344 @@ function Climate()
             <div className={ anchorageColor } id="anchorage" onMouseOver={ ()=> setIsAnchorage(true) } onMouseLeave={ ()=> setIsAnchorage(false) }/>
             <div className={ fairbanksColor } id="fairbanks" onMouseOver={ ()=> setIsFairbanks(true) } onMouseLeave={ ()=> setIsFairbanks(false) }/>
             <div className={ honoluluColor } id="honolulu" onMouseOver={ ()=> setIsHonolulu(true) } onMouseLeave={ ()=> setIsHonolulu(false) }/>
-            
+
             { isDc ? 
                 <div className="baseNameCont" id="showDc">
                     <p>Joint Base Andrews</p>
-                    <p>{ dcTemp[season] }°</p>
+                    <p>{ dcSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isBoston ? 
                 <div className="baseNameCont" id="showBoston">
                     <p>Hanscom</p>
-                    <p>{ bostonTemp[season] }°</p>
+                    <p>{ bostonSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isTrenton ? 
                 <div className="baseNameCont" id="showTrenton">
                     <p>Joint Base Mcguire-Dix-Lakehurst</p>
-                    <p>{ trentonTemp[season] }°</p>
+                    <p>{ trentonSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isDover ? 
                 <div className="baseNameCont" id="showDover">
                     <p>Dover</p>
-                    <p>{ doverTemp[season] }°</p>
+                    <p>{ doverSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isHampton ? 
                 <div className="baseNameCont" id="showHampton">
                     <p>Joint Base Langely-Eustis</p>
-                    <p>{ hamptonTemp[season] }°</p>
+                    <p>{ hamptonSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isGoldsboro ? 
                 <div className="baseNameCont" id="showGoldsboro">
                     <p>Seymour-Johnson</p>
-                    <p>{ goldsboroTemp[season] }°</p>
+                    <p>{ goldsboroSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isCharleston ? 
                 <div className="baseNameCont" id="showCharleston">
                     <p>Joint Base Charleston</p>
-                    <p>{ charlestonTemp[season] }°</p>
+                    <p>{ charlestonSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isSumter ? 
                 <div className="baseNameCont" id="showSumter">
                     <p>Shaw</p>
-                    <p>{ sumterTemp[season] }°</p>
+                    <p>{ sumterSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isTullahoma ? 
                 <div className="baseNameCont" id="showTullahoma">
                     <p>Arnold</p>
-                    <p>{ tullahomaTemp[season] }°</p>
+                    <p>{ tullahomaSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isColumbus ? 
                 <div className="baseNameCont" id="showColumbus">
                     <p>Columbus</p>
-                    <p>{ columbusTemp[season] }°</p>
+                    <p>{ columbusSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isMontgomery ? 
                 <div className="baseNameCont" id="showMontgomery">
                     <p>Maxwell</p>
-                    <p>{ montgomeryTemp[season] }°</p>
+                    <p>{ montgomerySafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isValdosta ? 
                 <div className="baseNameCont" id="showValdosta">
                     <p>Moody</p>
-                    <p>{ valdostaTemp[season] }°</p>
+                    <p>{ valdostaSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isMacon ? 
                 <div className="baseNameCont" id="showMacon">
                     <p>Robins</p>
-                    <p>{ maconTemp[season] }°</p>
+                    <p>{ maconSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isBiloxi ? 
                 <div className="baseNameCont" id="showBiloxi">
                     <p>Keesler</p>
-                    <p>{ biloxiTemp[season] }°</p>
+                    <p>{ biloxiSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isValparaiso ? 
                 <div className="baseNameCont" id="showValparaiso">
                     <p>Eglin</p>
-                    <p>{ valparaisoTemp[season] }°</p>
+                    <p>{ valparaisoSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isPanamaCity ? 
                 <div className="baseNameCont" id="showPanamaCity">
                     <p>Tyndall</p>
-                    <p>{ panamaCityTemp[season] }°</p>
+                    <p>{ panamaCitySafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isTampa ? 
                 <div className="baseNameCont" id="showTampa">
                     <p>Macdill</p>
-                    <p>{ tampaTemp[season] }°</p>
+                    <p>{ tampaSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isCocoaBeach ? 
                 <div className="baseNameCont" id="showCocoaBeach">
                     <p>Patrick</p>
-                    <p>{ cocoaBeachTemp[season] }°</p>
+                    <p>{ cocoaBeachSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isDayton ? 
                 <div className="baseNameCont" id="showDayton">
                     <p>Wright-Patterson</p>
-                    <p>{ daytonTemp[season] }°</p>
+                    <p>{ daytonSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isBelleville ? 
                 <div className="baseNameCont" id="showBelleville">
                     <p>Scott</p>
-                    <p>{ bellevilleTemp[season] }°</p>
+                    <p>{ bellevilleSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isKnobNoster ? 
                 <div className="baseNameCont" id="showKnobNoster">
                     <p>Whiteman</p>
-                    <p>{ knobNosterTemp[season] }°</p>
+                    <p>{ knobNosterSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isLittleRock ? 
                 <div className="baseNameCont" id="showLittleRock">
                     <p>Little Rock</p>
-                    <p>{ littleRockTemp[season] }°</p>
+                    <p>{ littleRockSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isMinot ? 
                 <div className="baseNameCont" id="showMinot">
                     <p>Minot</p>
-                    <p>{ minotTemp[season] }°</p>
+                    <p>{ minotSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isGrandForks ? 
                 <div className="baseNameCont" id="showGrandForks">
                     <p>Grand Forks</p>
-                    <p>{ grandForksTemp[season] }°</p>
+                    <p>{ grandForksSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isOffutt ? 
                 <div className="baseNameCont" id="showOffutt">
                     <p>Offutt</p>
-                    <p>{ offuttTemp[season] }°</p>
+                    <p>{ offuttSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isWichita ? 
                 <div className="baseNameCont" id="showWichita">
                     <p>McConnell</p>
-                    <p>{ wichitaTemp[season] }°</p>
+                    <p>{ wichitaSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isEnida ? 
                 <div className="baseNameCont" id="showEnida">
                     <p>Vance</p>
-                    <p>{ enidTemp[season] }°</p>
+                    <p>{ enidSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isOklahomaCity ? 
                 <div className="baseNameCont" id="showOklahomaCity">
                     <p>Tinker</p>
-                    <p>{ oklahomaCityTemp[season] }°</p>
+                    <p>{ oklahomaCitySafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isAltus ? 
                 <div className="baseNameCont" id="showAltus">
                     <p>Altus</p>
-                    <p>{ altusTemp[season] }°</p>
+                    <p>{ altusSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isWichitaFalls ? 
                 <div className="baseNameCont" id="showWichitaFalls">
                     <p>Sheppard</p>
-                    <p>{ wichitaFallsTemp[season] }°</p>
+                    <p>{ wichitaFallSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isSanAngelo ? 
                 <div className="baseNameCont" id="showSanAngelo">
                     <p>Goodfellow</p>
-                    <p>{ sanAngeloTemp[season] }°</p>
+                    <p>{ sanAngeloSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isAbilene ? 
                 <div className="baseNameCont" id="showAbilene">
                     <p>Dyess</p>
-                    <p>{ abileneTemp[season] }°</p>
+                    <p>{ abileneSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isDelRio ? 
                 <div className="baseNameCont" id="showDelRio">
                     <p>Laughlin</p>
-                    <p>{ delRioTemp[season] }°</p>
+                    <p>{ delRioSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isSanAntonio ? 
                 <div className="baseNameCont" id="showSanAntonio">
-                    <p>Joint Base San Antonio-Lackland/Joint Base San Antonio-Randolph,</p>
-                    <p>{ sanAntonioTemp[season] }°</p>
+                    <p>Joint Base San Antonio-Lackland/Joint Base San Antonio-Randolph</p>
+                    <p>{ sanAntonioSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isRapidCity ? 
                 <div className="baseNameCont" id="showRapidCity">
                     <p>Ellsworth</p>
-                    <p>{ rapidCityTemp[season] }°</p>
+                    <p>{ rapidCitySafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isCheyenne ? 
                 <div className="baseNameCont" id="showCheyenne">
                     <p>F.E. Warren</p>
-                    <p>{ cheyenneTemp[season] }°</p>
+                    <p>{ cheyenneSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isAurora ? 
                 <div className="baseNameCont" id="showAurora">
                     <p>Buckley</p>
-                    <p>{ auroraTemp[season] }°</p>
+                    <p>{ auroraSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isColoradoSprings ? 
                 <div className="baseNameCont" id="showColoradoSprings">
                     <p>Peterson</p>
-                    <p>{ coloradoSpringsTemp[season] }°</p>
+                    <p>{ coloradoSpringsSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isClovis ? 
                 <div className="baseNameCont" id="showClovis">
                     <p>Cannon</p>
-                    <p>{ clovisTemp[season] }°</p>
+                    <p>{ clovisSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isAlbuqurque ? 
                 <div className="baseNameCont" id="showAlbuqurque">
                     <p>Kirtland</p>
-                    <p>{ albuqurqueTemp[season] }°</p>
+                    <p>{ albuqurqueSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isAlamogordo ? 
                 <div className="baseNameCont" id="showAlamogordo">
                     <p>Holloman</p>
-                    <p>{ alamogordoTemp[season] }°</p>
+                    <p>{ alamogordoSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isGreatFalls ? 
                 <div className="baseNameCont" id="showGreatFalls">
                     <p>Malmstrom</p>
-                    <p>{ greatFallsTemp[season] }°</p>
+                    <p>{ greatFallsSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isSpokane ? 
                 <div className="baseNameCont" id="showSpokane">
                     <p>Fairchild</p>
-                    <p>{ spokaneTemp[season] }°</p>
+                    <p>{ spokaneSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isTakoma ? 
                 <div className="baseNameCont" id="showTakoma">
                     <p>Joint Base Lewis-McChord</p>
-                    <p>{ tacomaTemp[season] }°</p>
+                    <p>{ tacomaSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isMountainHome ? 
                 <div className="baseNameCont" id="showMountainHome">
                     <p>Mountain Home</p>
-                    <p>{ mountainHomeTemp[season] }°</p>
+                    <p>{ mountainHomeSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isOgden ? 
                 <div className="baseNameCont" id="showOgden">
                     <p>Hill</p>
-                    <p>{ ogdenTemp[season] }°</p>
+                    <p>{ ogdenSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isMarysville ? 
                 <div className="baseNameCont" id="showMarysville">
                     <p>Beale</p>
-                    <p>{ marysvilleTemp[season] }°</p>
+                    <p>{ marysvilleSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isTravis ? 
                 <div className="baseNameCont" id="showTravis">
                     <p>Travis</p>
-                    <p>{ fairfieldTemp[season] }°</p>
+                    <p>{ fairfieldSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isLasVegas ? 
                 <div className="baseNameCont" id="showLasVegas">
                     <p>Nellis</p>
-                    <p>{ lasVegasTemp[season] }°</p>
+                    <p>{ lasVegasSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isIndianSprings ? 
                 <div className="baseNameCont" id="showIndianSprings">
-                    <p>Creech</p>
-                    <p>{ indianSpringsTemp[season] }°</p>
+                    <p>Creech,</p>
+                    <p>{ indianSpringsSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isRosamond ? 
                 <div className="baseNameCont" id="showRosamond">
                     <p>Edwards</p>
-                    <p>{ rosamondTemp[season] }°</p>
+                    <p>{ rosamondSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isLompoc ? 
                 <div className="baseNameCont" id="showLompoc">
                     <p>Vandenberg</p>
-                    <p>{ lompocTemp[season] }°</p>
+                    <p>{ lompocSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isElSegundo ? 
                 <div className="baseNameCont" id="showElSegundo">
                     <p>Los Angeles</p>
-                    <p>{ elSegundoTemp[season] }°</p>
+                    <p>{ elSegundoSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isAnchorage ? 
                 <div className="baseNameCont" id="showAnchorage">
                     <p>Joint Base Elmendorf-Richardson</p>
-                    <p>{ anchorageTemp[season] }°</p>
+                    <p>{ anchorageSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isFairbanks ? 
                 <div className="baseNameCont" id="showFairbanks">
                     <p>Eielson</p>
-                    <p>{ fairbanksTemp[season] }°</p>
+                    <p>{ fairbanksSafety[choice] }</p>
                 </div> 
             : <div></div> }
             { isHonolulu ? 
                 <div className="baseNameCont" id="showHonolulu">
                     <p>Joint Base Pearl Harbor-Hickam</p>
-                    <p>{ honoluluTemp[season] }°</p>
+                    <p>{ honoluluSafety[choice] }</p>
                 </div> 
             : <div></div> }
         </div>
     )
 }
-export default Climate
+export default Safety;

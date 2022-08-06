@@ -58,6 +58,14 @@ path:hover {
   background-color: rgb(116, 116, 226);
 }
 
+.green {
+  background-color: #008000;
+}
+
+.greenYellow {
+  background-color: #9DC400;
+}
+
 .yellow {
   background-color: yellow;
 }
@@ -135,8 +143,20 @@ li:hover {
   width: 75px;
 }
 
+#safetyButtons {
+  position: absolute;
+  margin-top: -25px;
+  margin-left: -150px;
+  width: 160px;
+}
+
 #climateForm {
   margin-bottom: 248px;
+  margin-left: -20px;
+}
+
+#safetyForm {
+  margin-bottom: 404px;
   margin-left: -20px;
 }
 
