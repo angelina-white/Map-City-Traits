@@ -264,23 +264,23 @@ function Safety()
 
     function findColor(grade, setter)
     {
-        if (grade <= 20 || grade == "F")
+        if (grade <= 20 || grade === "F")
         {
             setter("circle red")
         }
-        else if (grade > 20 && grade <= 40 || grade == "D")
+        else if (grade > 20 && grade <= 40 || grade === "D")
         {
             setter("circle orange")
         }
-        else if (grade > 40 && grade <= 60 || grade == "C")
+        else if (grade > 40 && grade <= 60 || grade === "C")
         {
             setter("circle yellow")
         }
-        else if (grade > 60 && grade <= 80 || grade == "B")
+        else if (grade > 60 && grade <= 80 || grade === "B")
         {
             setter("circle greenYellow")
         }
-        else if (grade > 80 && grade <= 100 || grade == "A")
+        else if (grade > 80 && grade <= 100 || grade === "A")
         {
             setter("circle green")
         }

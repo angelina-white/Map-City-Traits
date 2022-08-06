@@ -358,7 +358,7 @@ function BAH()
 
     useEffect(() =>
     {
-        sendRankToColor(rank, isDependents)
+        sendRankToColor(0, true)
     }, [])
 
     function sendRankToColor(num, bool)
