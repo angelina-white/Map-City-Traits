@@ -7,8 +7,6 @@ import Safety from "./Components/Safety";
 
 function App() 
 {
-  const [showWeather, setShowWeather] = useState(false)
-
   const [isBAH, setIsBAH] = useState(false)
   const [isClimate, setIsClimate] = useState(false)
   const [isSafety, setIsSafety] = useState(false)
